@@ -1,6 +1,7 @@
 const { Router } = require('express');
-const { Actividad_Turistica, Country, Actividad } = require('../db');
+const { Activities, Country, actividad } = require('../db');
 const { Op } = require('sequelize');
+// const Activiadad = require('../models/Activiadad');
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -11,51 +12,26 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-// const dataInfo = async () => {
-//   const info = await axios.get('https://restcountries.com/v3/all')
- 
-//   const data = await info.data.map(el => {
-//            return { 
-//            name: el.name.common,
-//            cca3: el.cca3,
-//            capital: el.capital,
-//            region: el.region,
-//            subregion : el.subregion,
-//            area: el.area,
-//            population: el.population,
-//            contiente: el.continents.toString(),
-//            flags: el.flags[1],
-//        }
-//    })
-  S
-// return data 
-// }
 
 
 
 router.get('/countries', async (req, res) => {
     const {name} = req.query
-    // const info = await dataInfo() //info de la api
-    
-    // try {
-    //     const data = await Country.findAll();// data de la tabla
-    //     if(!data.length){
-    //         await  Country.bulkCreate(info)
-    //       }
-    // } catch (error) {
-    //     console.log(error)
-    // }
+    let found = await Country.findAll({where: {name: {[Op.iLike]: '%' + name + '%'}}})  
   
     if(name){
-
         try {
-  let found = await Country.findAll({where: {name: {[Op.iLike]: '%' + name + '%'}}})  
-  res.json(found)
+           found? res.json(found): res.sendStatus(404)
+            
+  
         } catch (error) {
             console.log(error)
         }
     } else{
-      res.send(info)
+        let Total = await Country.findAll({
+            attributes: ['name']
+          })
+      res.json(Total)
     }
    
 })
@@ -63,8 +39,34 @@ router.get('/countries', async (req, res) => {
 router.get('/countries/:idPais', async (req, res) => {
 
    const {idPais} = req.params
-   const found = await Country.findByPk(idPais)
-   res.send(found)
+   const found = await Country.findByPk(idPais, {include: actividad})
+   found? res.json(found) : res.sendStatus(404)
+})
+
+router.post('/activity', async (req, res) => {
+    const {nombre, dificultad, duracion, temporada, countries} = req.body
+try {
+    if(nombre && dificultad && duracion){
+        const [activity, created] = await Activities.findOrCreate({
+            where: {nombre: nombre},
+            defaults: {
+                nombre: nombre,
+                dificultad: dificultad,
+                duracion: duracion,
+                // temporada: temporada
+            }
+            
+          });
+          await activity.setCountries(countries)
+          res.json(activity)
+          console.log(created)
+    }
+    
+    
+} catch (error) {
+    console.log(error)
+}
+
 })
 
 
