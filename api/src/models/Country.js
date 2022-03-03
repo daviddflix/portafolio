@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
     subregion: { type: DataTypes.STRING},
     area: {type: DataTypes.INTEGER},
     population: {type: DataTypes.INTEGER},
-  });
+  },{timestamps: false });
 
 
 };

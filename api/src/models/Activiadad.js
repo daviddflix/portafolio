@@ -8,5 +8,5 @@ module.exports = (sequelize) => {
     dificultad: {type: DataTypes.INTEGER, defaultValue: 0, validate: {min:0, max:5}},
     duracion: {type: DataTypes.INTEGER},
     // temporada: {type: DataTypes.ENUM(["Verano", "Otoño", "Invierno","Primavera"])}
-  })
+  }, {timestamps: false })
 };

@@ -21,9 +21,8 @@ router.get('/countries', async (req, res) => {
   
     if(name){
         try {
-           found? res.json(found): res.sendStatus(404)
-            
-  
+           found? res.send(found): res.sendStatus(404)
+           
         } catch (error) {
             console.log(error)
         }
@@ -39,8 +38,14 @@ router.get('/countries', async (req, res) => {
 router.get('/countries/:idPais', async (req, res) => {
 
    const {idPais} = req.params
-   const found = await Country.findByPk(idPais, {include: actividad})
-   found? res.json(found) : res.sendStatus(404)
+   try {
+    const found = await Country.findByPk(idPais, {include: Activities})
+    found? res.json(found) : res.sendStatus(404)
+
+   } catch (error) {
+       console.log(error)
+   }
+  
 })
 
 router.post('/activity', async (req, res) => {

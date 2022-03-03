@@ -19,10 +19,60 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const axios = require('axios').default;
+const { Actividad_Turistica, Country, Actividad } = require('./src/db');
 
-// Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+
+const dataInfo = async () => {
+  try {
+    const info = await axios.get('https://restcountries.com/v3/all')
+  const data = await info.data.map(el => {
+           return { 
+           name: el.name.common,
+           cca3: el.cca3,   
+           capital: el.capital,
+           region:  el.region,
+           subregion : el.subregion,
+           area: el.area,
+           population: el.population,
+           contiente: el.continents.toString(),
+           flags: el.flags[1],
+       }
+   })
+  
+return data 
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
+
+(async () => {
+  await conn.sync({ force: true });
+ 
+
+     const info = await dataInfo() //info de la api
+    console.log(info)
+    try {
+        const data = await Country.findAll();// data de la tabla
+        if(!data.length){
+            await  Country.bulkCreate(info)
+          }
+    } catch (error) {
+        console.log(error)
+    }
+
+    server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-});
+})();
+
+// // Syncing all the models at once.
+// conn.sync({ force: true }).then(() => {
+
+  
+//   server.listen(3001, () => {
+//     console.log('%s listening at 3001'); // eslint-disable-line no-console
+//   });
+// });
+
