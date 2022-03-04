@@ -1,0 +1,37 @@
+.container{
+    display: inline-block;
+    padding: 5px;
+    margin: 1rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    transition: all .2s ease-in-out;
+   
+}
+.container:hover{
+  transform: scale(1.1);
+}
+
+.title{
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.imagen{
+  height: 200px;
+  width: 300px;
+}
+
+.input{
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 20%;
+  font-size: 1rem;
+}
+
+.boton{
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+

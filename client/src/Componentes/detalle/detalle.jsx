@@ -2,7 +2,8 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getDetail } from "../../redux/actions"
-
+import { Nav } from "../barra/barra"
+import  './detalle.module.css'
 export function Detalle(){
     const {idPais} = useParams()
     const dispatch = useDispatch()
@@ -11,28 +12,22 @@ export function Detalle(){
     useEffect(()=> {
 dispatch(getDetail(idPais))
     }, [dispatch, idPais])
-
-//     activities: []
-// area: 1141748
-// capital: "{Bogotá}"
-// cca3: "COL"
-// contiente: "South America"
-// flags: "https://flagcdn.com/w320/co.png"
-// id: 49
-// name: "Colombia"
-// population: 50882884
-
-    
-     return(
-      <div>
-      <h1>{detalle.name}</h1>
+ 
+    return(
+        <div>
+          <Nav/>
+     <div className='container'>
+         
+      <h2>Country: <h3>{detalle.name}</h3></h2>
       <img src={detalle.flags} alt="" />
-      <h2>{detalle.capital}</h2>
-      <h2>{detalle.contiente}</h2>
-      <h3>{detalle.population}</h3>
-      <h3>{detalle.area}</h3>
-      <h1>{detalle.activities}</h1>
+      <h2>Capital: <h3>{detalle.capital}</h3></h2>
+      <h2>Continent: <h3>{detalle.continente}</h3></h2>
+      <h2>Population: <h3>{detalle.population}</h3></h2>
+      <h2>Area: <h3>{detalle.area}</h3></h2>
+      <h2>Subregion: <h3>{detalle.subregion}</h3></h2>
+      {/* {detalle.activities? <h2>Activities: {detalle.activities}</h2>: } */}
       
+     </div>
 
       </div>
      )

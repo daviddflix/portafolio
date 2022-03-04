@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    background-color: darkslategrey;
+    padding:11px;
+}
+
+.ruta_form{
+   text-decoration: none;
+   margin-right: 100px;
+   color: black;
+   padding: 8px;
+   border-radius: 5px;
+   background-color: #29bf12;
+   font-weight: 600;
+   border: 1px solid black;
+}
+
+.ruta_home{
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #29bf12;
+    font-weight: 600;
+}
+
+.img{
+    width: 3%;
+    height: 3%;
+    
+}
+
+.title{
+    padding: 0;
+}
+
+
+

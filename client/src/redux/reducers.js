@@ -1,8 +1,9 @@
-import { GET_COUNTRY, GET_DETAILS } from "./actions"
+import { GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
 
 const InicialState ={
     paises : [],
     detalle: {}
+   
 }
 
 
@@ -17,6 +18,12 @@ const InicialState ={
          return {
              ...state,
              detalle: action.payload
+         }
+     } if (action.type === GET_All){
+         return{
+             ...state,
+             paises: action.payload
+   
          }
      }
      
