@@ -27,6 +27,8 @@ const dataInfo = async () => {
   try {
     const info = await axios.get('https://restcountries.com/v3/all')
   const data = await info.data.map(el => {
+   
+    
            return { 
            name: el.name.common,
            cca3: el.cca3,   
@@ -35,7 +37,7 @@ const dataInfo = async () => {
            subregion : el.subregion,
            area: el.area,
            population: el.population,
-           contiente: el.continents.toString(),
+           continente: el.continents.toString(),
            flags: el.flags[1],
        }
    })
@@ -52,7 +54,7 @@ return data
  
 
      const info = await dataInfo() //info de la api
-    console.log(info)
+   
     try {
         const data = await Country.findAll();// data de la tabla
         if(!data.length){

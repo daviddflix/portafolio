@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
     cca3: {type: DataTypes.STRING, allowNull: false},
     name: {type: DataTypes.STRING, allowNull: false},
     flags: {type: DataTypes.STRING, unique: true, allowNull: false},
-    contiente: {type: STRING, allowNull: false},
+    continente: {type: STRING, allowNull: false},
     capital: { type: STRING},
     subregion: { type: DataTypes.STRING},
     area: {type: DataTypes.INTEGER},

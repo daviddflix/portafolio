@@ -27,10 +27,13 @@ router.get('/countries', async (req, res) => {
             console.log(error)
         }
     } else{
-        let Total = await Country.findAll({
-            attributes: ['name']
-          })
-      res.json(Total)
+        try {
+            let Total = await Country.findAll()
+          res.json(Total)
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
    
 })
