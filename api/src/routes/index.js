@@ -54,21 +54,21 @@ router.get('/countries/:idPais', async (req, res) => {
 router.post('/activity', async (req, res) => {
     const {nombre, dificultad, duracion, temporada, countries} = req.body
 try {
-    if(nombre && dificultad && duracion){
+   
         const [activity, created] = await Activities.findOrCreate({
             where: {nombre: nombre},
             defaults: {
                 nombre: nombre,
                 dificultad: dificultad,
                 duracion: duracion,
-                // temporada: temporada
+                temporada: temporada
             }
             
           });
           await activity.setCountries(countries)
           res.json(activity)
           console.log(created)
-    }
+    
     
     
 } catch (error) {

@@ -23,8 +23,8 @@ module.exports = (sequelize) => {
     continente: {type: STRING, allowNull: false},
     capital: { type: STRING},
     subregion: { type: DataTypes.STRING},
-    area: {type: DataTypes.INTEGER},
-    population: {type: DataTypes.INTEGER},
+    area: {type: DataTypes.FLOAT},
+    population: {type: DataTypes.FLOAT},
   },{timestamps: false });
 
 
