@@ -1,0 +1,21 @@
+
+
+.main_container{
+    display: flex;
+    justify-content: center;
+   
+}
+
+
+
+label{
+    margin: 10px;
+    color: red;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+select{
+    border-radius: 5px;
+    
+}

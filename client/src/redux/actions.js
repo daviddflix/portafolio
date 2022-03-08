@@ -4,6 +4,9 @@ export const GET_COUNTRY = 'GET_COUNTRY'
 export const GET_DETAILS = 'GET_DETAILS'
 export const  GET_All = ' GET_All'
 export const POST = 'POST'
+export const FILTER_CONTINENT = 'FILTER_CONTINENT'
+export const FILTER_POPULATION = 'FILTER_POPULATION'
+export const FILTERAZ = 'FILTERAZ'
 
 export function getCountries (title){
 
@@ -11,6 +14,7 @@ export function getCountries (title){
        return async function (dispatch){
           try {
                const res = await axios.get(`http://localhost:3001/countries?name=${title}`);
+               console.log(res)
                return dispatch({ type: GET_COUNTRY, payload: res.data });
            } catch (err) {
                return console.error(err);
@@ -43,12 +47,12 @@ export function getCountries (title){
    
 } 
 
-
+ 
 
  export function postAcitvity (nombre, dificultad, duracion, temporada, countries){
-   return async function (dispatch){
+  
           try {
-               const res = await axios.post(`http://localhost:3001/activity`, {
+               const res =  axios.post(`http://localhost:3001/activity`, {
                   nombre, dificultad, duracion, temporada, countries
                });
                 return res
@@ -56,11 +60,32 @@ export function getCountries (title){
                return console.error(err);
            }
                
-       } 
+       
     
     
  } 
+
+
+ export function filterByContinent(value){
+     return{
+         type:FILTER_CONTINENT,
+         payload: value
+     }
+ }
  
+ export function filterByPopulation(value){
+     return{
+       type: FILTER_POPULATION,
+       payload: value
+     }
+ }
+
+ export function filterAz(value){
+     return{
+         type: FILTERAZ,
+         payload: value
+     }
+ }
 
 
 

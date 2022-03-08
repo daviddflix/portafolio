@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
 import s from './barra.module.css'
 import img from '../img/_114936566_coronavirus_index_wolrd_976.png'
+import { SearchBar } from "../SearchBar/searchbar";
 
 export function Nav(){
      return(
-      <div className={s.container}>
-
-{/* <h3 className={s.title}>Countries of the World</h3> */}
-
+<div>
+<div className={s.container}>
 
 <div  >
 
@@ -21,9 +20,11 @@ export function Nav(){
 
 </div>
 
-<img className={s.img} src={img} alt="" />
+<SearchBar/>
 
+<img className={s.img} src={img} alt="not found" />
+ </div>
 
-      </div>
+</div>
      )
 }

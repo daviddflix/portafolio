@@ -8,7 +8,7 @@ export function Detalle(){
     const {idPais} = useParams()
     const dispatch = useDispatch()
     const detalle = useSelector(state => state.detalle)
-
+   console.log('detalle:' ,detalle)
     useEffect(()=> {
 dispatch(getDetail(idPais))
     }, [dispatch, idPais])
@@ -18,17 +18,48 @@ dispatch(getDetail(idPais))
           <Nav/>
      <div className='container'>
          
-      <h2>Country: <h3>{detalle.name}</h3></h2>
+      <h2>Country: <p>{detalle.name}</p></h2>
       <img src={detalle.flags} alt="" />
-      <h2>Capital: <h3>{detalle.capital}</h3></h2>
-      <h2>Continent: <h3>{detalle.continente}</h3></h2>
-      <h2>Population: <h3>{detalle.population}</h3></h2>
-      <h2>Area: <h3>{detalle.area}</h3></h2>
-      <h2>Subregion: <h3>{detalle.subregion}</h3></h2>
-      {/* {detalle.activities? <h2>Activities: {detalle.activities}</h2>: } */}
+      <h2>Capital: <p>{detalle.capital}</p></h2>
+      <h2>Continent: <p>{detalle.continente}</p></h2>
+      <h2>Population: <p>{nFormatter(detalle.population)}</p></h2>
+      <h2>Area: <p>{nFormatterArea(detalle.area)}</p></h2>
+      <h2>Subregion: <p>{detalle.subregion}</p></h2>
+      {detalle.activities? <h2>Activities: {detalle.activities}</h2>: null }
       
      </div>
 
       </div>
      )
 }
+
+
+function nFormatter(num) {
+    if (num >= 1000000000) {
+       return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + ' ' + 'G';
+    }
+    if (num >= 1000000) {
+       return (num / 1000000).toFixed(1).replace(/\.0$/, '') + ' ' + 'Millons hab';
+    }
+    if (num >= 1000) {
+       return (num / 1000) + ' ' + 'hab';
+    }
+    return num;
+  }
+
+  
+function nFormatterArea(num) {
+    if (num<=999) {
+       return (num).toFixed(1).replace(/\.0$/, '') + ' ' + 'Km2';
+    }
+    if (num >= 1000 && num <= 1000000) {
+        return (num/1000) + ' ' + 'Km2';
+     }
+     if (num >= 1000000) {
+        return (num/1000000).toFixed(4)+ ' ' + 'Km2';
+     }
+   
+    
+  
+    return num;
+  }

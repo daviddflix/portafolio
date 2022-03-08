@@ -4,7 +4,7 @@ import  Home  from './Componentes/home/home.jsx';
 import { Route } from 'react-router-dom';
 import { Detalle } from './Componentes/detalle/detalle.jsx';
 import { Form } from './Componentes/form/form';
-import { Nav } from './Componentes/barra/barra';
+
 
 
 
@@ -16,6 +16,8 @@ function App() {
     <Route path='/home'>
     <Home/>
    </Route>
+
+  
 
 
     <Route exact path='/'>

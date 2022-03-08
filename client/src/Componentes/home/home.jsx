@@ -1,41 +1,54 @@
 import { useEffect, useState } from "react"
 import {useDispatch, useSelector} from 'react-redux'
-import { getAll, getCountries } from "../../redux/actions"
+import { filterAz, getAll } from "../../redux/actions"
 import {NavLink} from 'react-router-dom'
 import s from './home.module.css'
 import { Nav } from "../barra/barra"
-
+import { Paginado } from "../paginado/paginado"
+import { Filtros } from "../filtros/Filtros"
 export default function Home(){
    const paises = useSelector(state => state.paises)
-   const [valor, setValor] = useState('')
    const dispatch = useDispatch()
 
-   const handleSubmit = (e) =>  {
-    e.preventDefault();
-   dispatch(getCountries(valor))
+   const [order, setOrder] = useState('')
+     let [currentPage, setcurrentPage] = useState(1);
+     const [countriesPerPage, setCountriesPerPage] = useState(10)
+     const indexOfLastCountry = currentPage * countriesPerPage; // i10
+     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage // 10 - 10 = 0 
+     const currentCountries = paises.slice(indexOfFirstCountry, indexOfLastCountry)
+                                    //     start i=0            end i=10
+     const paginado = (pageNumber) => {
+       setcurrentPage(pageNumber)
+     }
+
+
   
-  }
-  
-const handleChange = (e) =>  {
+
+const handleAz = (e)=> {
   e.preventDefault();
-  setValor(e.target.value);
+  dispatch(filterAz(e.target.value));
+  setcurrentPage(1)
+  setOrder(`${e.target.value}`)
 }
+
 
 useEffect(()=>{
   dispatch(getAll())
 },[dispatch])
 
+
+
      return(
       <div>
       <Nav/>
+     <Filtros handleAz={handleAz}/>
+      <Paginado paginado={paginado} countriesPerPage={countriesPerPage} countries={paises.length} />
       <form>
-<div >
-   <input className={s.input} placeholder="Looking For"  valor={valor} onChange={(e) => handleChange(e)} />
-   <button className={s.boton}  onClick={(e) => handleSubmit(e)} >Search</button>
-</div>
+
 <div>
+
   {
-    paises?.map(el => {
+    currentCountries?.map(el => {
       return(
         <div key={el.cca3} className={s.container}>
        <NavLink className={s.title} to={`/detalle/${el.id}`}>

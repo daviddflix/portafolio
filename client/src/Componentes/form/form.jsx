@@ -1,12 +1,12 @@
-import { useState } from "react"
-import { useSelector } from "react-redux"
-import { postAcitvity } from "../../redux/actions"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getAll, postAcitvity } from "../../redux/actions"
 import { Nav } from "../barra/barra"
 import s from './form.module.css'
 
 export function Form(){
-     const paises = useSelector(state => state.paises.name)
-     console.log(paises)
+     const paises = useSelector(state => state.paises)
+     const dispatch = useDispatch()
 
     const [input, setInput] = useState({
         nombre: '',
@@ -15,49 +15,98 @@ export function Form(){
         temporada: '',
         countries: []
     })
+    console.log(input)
     
     let handleInputChange = (e) => {
         setInput(prev => ({...prev, [e.target.name] : e.target.value
         }))
     }
+
+    let handlePais = (e) => {
+        setInput({...input, countries: e.target.value})
+    }
+
+    let handleTemp = (e) => {
+        setInput({...input, temporada: e.target.value})
+    }
+
+    let handleDificultad = (e) => {
+        setInput({...input, dificultad: e.target.value})
+    }
     
     let submit =(e) => {
         e.preventDefault() 
-        // postAcitvity(input.nombre, input.duracion) 
+       dispatch(postAcitvity(input))
+        alert('done')
     }
+
+    useEffect(() => {
+     dispatch(getAll())
+    }, [dispatch])
 
             
  
     return(
-        <div>
+        <div className={s.main_container}>
             <Nav/>
-            <form>
 
+            <form onSubmit={submit}>
             <div className={s.form}>
-            <label>Nombre:</label>
-            <input type="text"  value={input.nombre} onChange={handleInputChange} name='nombre' required/>
-            <label>Dificultad:</label>
-            <select required>
-                <option value={input.dificultad}>1</option>
-                <option value={input.dificultad}>2</option>
-                <option value={input.dificultad}>3</option>
-                <option value={input.dificultad}>4</option>
-                <option value={input.dificultad}>5</option>
-            </select>
-            <label>Duración:</label>
-            <input type='number'  value={input.duracion} onChange={handleInputChange} name='duracion' required/>
-            <label>Temporada:</label>
-            <select required>
-                <option value={input.temporada}>Verano</option>
-                <option value={input.temporada}>Invierno</option>
-                <option value={input.temporada}>Otoño</option>
-                <option value={input.temporada}>Primavera</option>
-            </select>
-            <label>Pais:</label>
-            <input type="text"   value={input.countries} onChange={handleInputChange} name='pais' required/>
-            <input type="submit" onSubmit={submit}/>
-            </div>
 
+            <label>Nombre:</label>
+            <input 
+            type="text"  
+            value={input.nombre} 
+            onChange={handleInputChange} 
+            name='nombre' required/>
+
+            <label>Dificultad:</label>
+            <select onChange={handleDificultad}>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+            </select>
+
+            <label>Duración:</label>
+            <input 
+            type='text'  
+            value={input.duracion} 
+            onChange={handleInputChange} 
+            name='duracion' required/>
+
+            {/* <label>Temporada:</label>
+            <input list='data' onChange={handleTemp}  />
+            <datalist id="data">
+            <option value='Verano'>Verano</option>
+                <option value='Invierno'>Invierno</option>
+                <option value='Otoño'>Otoño</option>
+                <option value='Primavera'>Primavera</option>
+            </datalist> */}
+            <label>Temporada</label>
+            <select onChange={handleTemp}>
+                <option value='Verano'>Verano</option>
+                <option value='Invierno'>Invierno</option>
+                <option value='Otoño'>Otoño</option>
+                <option value='Primavera'>Primavera</option>
+            </select>
+
+            <label>Pais:</label>
+            <input list="pais" onChange={handlePais} />
+            <datalist id="pais">
+               {
+                   paises?.map(el => {
+                       return(
+                           <option value={el.id}>{el.name}</option>
+                       )
+                   })
+               }
+           </datalist>
+        
+        <button onSubmit={submit}>Submit</button>
+
+            </div>
             </form>
         </div>
      )
