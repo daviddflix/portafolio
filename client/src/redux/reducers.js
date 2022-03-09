@@ -1,4 +1,4 @@
-import { FILTERAZ, FILTER_CONTINENT, FILTER_POPULATION, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
+import { FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
 
 const InicialState ={
     paises : [],
@@ -51,6 +51,27 @@ const InicialState ={
          return{
              ...state,
              paises:  filterAZ
+         }
+     } 
+     if(action.type === FILTER_ACT){
+         const act = state.paises_2.filter(el => el.activities.length)
+
+        const data = action.payload === "All"? act: act.filter(function(el) {
+            for (let i = 0; i < el.activities.length; i++) {
+                if(el.activities[i].nombre === action.payload){
+                    return el
+                } 
+            }
+           
+        })
+        const filterAct = act.filter(el => {
+            return el.activities.filter(el => action.payload === el.nombre)
+        })
+        console.log('act',data)
+
+         return{
+             ...state,
+             paises: data
          }
      }
      

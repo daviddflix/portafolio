@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getDetail } from "../../redux/actions"
 import { Nav } from "../barra/barra"
-import  './detalle.module.css'
+import  s from './detalle.module.css'
 export function Detalle(){
     const {idPais} = useParams()
     const dispatch = useDispatch()
@@ -14,20 +14,32 @@ dispatch(getDetail(idPais))
     }, [dispatch, idPais])
  
     return(
-        <div>
+        <div className={s.main_container}>
           <Nav/>
-     <div className='container'>
-         
-      <h2>Country: <p>{detalle.name}</p></h2>
-      <img src={detalle.flags} alt="" />
-      <h2>Capital: <p>{detalle.capital}</p></h2>
-      <h2>Continent: <p>{detalle.continente}</p></h2>
-      <h2>Population: <p>{nFormatter(detalle.population)}</p></h2>
-      <h2>Area: <p>{nFormatterArea(detalle.area)}</p></h2>
-      <h2>Subregion: <p>{detalle.subregion}</p></h2>
-      {detalle.activities? <h2>Activities: {detalle.activities}</h2>: null }
-      
-     </div>
+       {
+          detalle? <div className={s.container}>
+          <h2>Country: <p>{detalle.name}</p></h2>
+           <img src={detalle.flags} alt="" />
+           <h2>Capital: <p>{detalle.capital}</p></h2>
+           <h2>Continent: <p>{detalle.continente}</p></h2>
+           <h2>Population: <p>{nFormatter(detalle.population)}</p></h2>
+           <h2>Area: <p>{nFormatterArea(detalle.area)}</p></h2>
+           
+           <h2>Subregion: <p>{detalle.subregion}</p></h2>
+           <h2>Activities: <p>{detalle.activities? detalle.activities.map(el=> {
+              return(
+                 <div className={s.container_activity}>  
+            <h2 className={s.activities}>Activity: <p>{el.nombre}</p></h2> 
+              <h2 className={s.activities}>Difficulty: <p>{el.dificultad} </p></h2>
+             <h2 className={s.activities}>Duration:  <p>{el.duracion} day</p></h2>
+              <h2 className={s.activities}>Season: <p>{el.temporada}</p></h2>  
+                 </div>
+              )
+           }): <p>No Activities Found</p> }</p></h2>
+          
+           
+          </div>: <p className={s.loader}></p>
+       }
 
       </div>
      )

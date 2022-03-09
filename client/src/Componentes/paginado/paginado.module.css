@@ -1,10 +1,12 @@
 .boton{
     padding: 8px;
     font-weight: 700;
+    background-color: #0394fc;
+    border-radius: 5px;
 }
 
 .boton:hover{
-    background-color: goldenrod;
+    background-color: #29bf12;
 }
 
 .container{
@@ -20,3 +22,5 @@ ul{
 bottom: 15px;
    
 }
+
+

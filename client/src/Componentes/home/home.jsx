@@ -7,7 +7,7 @@ import { Nav } from "../barra/barra"
 import { Paginado } from "../paginado/paginado"
 import { Filtros } from "../filtros/Filtros"
 export default function Home(){
-   const paises = useSelector(state => state.paises)
+    const paises = useSelector(state => state.paises)
    const dispatch = useDispatch()
 
    const [order, setOrder] = useState('')
@@ -33,8 +33,10 @@ const handleAz = (e)=> {
 
 
 useEffect(()=>{
-  dispatch(getAll())
-},[dispatch])
+  if(!paises.length){
+    dispatch(getAll())
+  }
+})
 
 
 
@@ -48,18 +50,19 @@ useEffect(()=>{
 <div>
 
   {
-    currentCountries?.map(el => {
+    currentCountries.length?
+    currentCountries.map(el => {
       return(
         <div key={el.cca3} className={s.container}>
        <NavLink className={s.title} to={`/detalle/${el.id}`}>
          <h1>{el.name}</h1>
         <img className={s.imagen} src={el.flags} alt="Not Found" />
-        <h2>{el.continente}</h2>
+        <h1>{el.continente}</h1>
         </NavLink> 
       </div>
       )
      
-    })
+    }): <p className={s.loader}></p>
   }
 </div>
 </form>

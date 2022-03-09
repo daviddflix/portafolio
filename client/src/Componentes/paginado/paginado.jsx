@@ -19,7 +19,7 @@ export function Paginado({paginado, countriesPerPage, countries}){
                          return(
                               <div className={s.container} key={number}>
                               <li className={s.li} >
-                              <button className={s.boton} onClick={ () => paginado(number)}>{number}</button>
+                              <button className={s.boton}  onClick={ () => paginado(number)}>{number}</button>
                             </li>
                               </div>
                              

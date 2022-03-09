@@ -11,7 +11,7 @@ export function Nav(){
 <div  >
 
 <NavLink className={s.ruta_form}  to='/form' exact>
-   Create activity
+   Create Activity
 </NavLink>
 
 <NavLink className={s.ruta_home}   to='/home'>

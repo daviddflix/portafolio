@@ -3,7 +3,7 @@ const axios = require('axios').default;
 export const GET_COUNTRY = 'GET_COUNTRY'
 export const GET_DETAILS = 'GET_DETAILS'
 export const  GET_All = ' GET_All'
-export const POST = 'POST'
+export const FILTER_ACT = 'FILTER_ACT'
 export const FILTER_CONTINENT = 'FILTER_CONTINENT'
 export const FILTER_POPULATION = 'FILTER_POPULATION'
 export const FILTERAZ = 'FILTERAZ'
@@ -49,16 +49,17 @@ export function getCountries (title){
 
  
 
- export function postAcitvity (nombre, dificultad, duracion, temporada, countries){
+ export function postAcitvity (payload){
+ 
+
+    try {
+        const res =  axios.post("http://localhost:3001/activity", payload);
+         return res
+    } catch (err) {
+        return console.error(err);
+    }
   
-          try {
-               const res =  axios.post(`http://localhost:3001/activity`, {
-                  nombre, dificultad, duracion, temporada, countries
-               });
-                return res
-           } catch (err) {
-               return console.error(err);
-           }
+         
                
        
     
@@ -85,7 +86,16 @@ export function getCountries (title){
          type: FILTERAZ,
          payload: value
      }
+       
  }
+
+ export function filterActivity(value){
+    return{
+        type: FILTER_ACT,
+        payload: value
+    }
+
+}
 
 
 

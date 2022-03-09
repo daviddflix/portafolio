@@ -6,14 +6,56 @@ p{
 
 h2{
     display: flex;
-    justify-content: center;
     align-items: center;
-
     margin: 0;
-   
+    font-size: 20px;
+    line-height: 0;
 }
+
+/* body{
+  background-color: #2b2d42;
+} */
+
 
 .container{
-   padding: 0;
-   margin: 0%;
+  margin: 10px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
 }
+
+.activities{
+ color: black;
+}
+
+.container_activity{
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 10px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid gray;
+    border-bottom: 16px solid white;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: relative;
+    left: 40rem;
+    top: 10rem;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

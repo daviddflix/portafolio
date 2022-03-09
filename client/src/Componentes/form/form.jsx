@@ -8,12 +8,13 @@ export function Form(){
      const paises = useSelector(state => state.paises)
      const dispatch = useDispatch()
 
+     const [checked, setCheckBoxChecked] = useState('');
     const [input, setInput] = useState({
         nombre: '',
         dificultad:'',
         duracion: '',
         temporada: '',
-        countries: []
+        name: []
     })
     console.log(input)
     
@@ -22,8 +23,12 @@ export function Form(){
         }))
     }
 
+    const onChangeAttribute = (value) => {
+          setCheckBoxChecked(value);
+    };
+
     let handlePais = (e) => {
-        setInput({...input, countries: e.target.value})
+        setInput({...input, name: [...input.name, e.target.value]})
     }
 
     let handleTemp = (e) => {
@@ -31,7 +36,9 @@ export function Form(){
     }
 
     let handleDificultad = (e) => {
-        setInput({...input, dificultad: e.target.value})
+        
+            setInput({...input, dificultad: e.target.value})
+        
     }
     
     let submit =(e) => {
@@ -47,67 +54,73 @@ export function Form(){
             
  
     return(
-        <div className={s.main_container}>
+        <div>
             <Nav/>
 
-            <form onSubmit={submit}>
+           <div className={s.main_container}>
+           <form onSubmit={(e) => submit(e)}>
             <div className={s.form}>
 
+            <div className={s.div1}>
             <label>Nombre:</label>
             <input 
             type="text"  
             value={input.nombre} 
-            onChange={handleInputChange} 
+            onChange={(e) => handleInputChange(e)} 
             name='nombre' required/>
+            </div>
 
-            <label>Dificultad:</label>
-            <select onChange={handleDificultad}>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-            </select>
+         <div className={s.div2}>
+         <label>Dificultad:</label>
+            <select onChange={(e) => handleDificultad(e)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>           
+            </div>
 
+            <div className={s.div3}>
             <label>Duración:</label>
             <input 
             type='text'  
             value={input.duracion} 
-            onChange={handleInputChange} 
+            onChange={(e) => handleInputChange(e)} 
             name='duracion' required/>
+                </div>
 
-            {/* <label>Temporada:</label>
-            <input list='data' onChange={handleTemp}  />
-            <datalist id="data">
-            <option value='Verano'>Verano</option>
-                <option value='Invierno'>Invierno</option>
-                <option value='Otoño'>Otoño</option>
-                <option value='Primavera'>Primavera</option>
-            </datalist> */}
-            <label>Temporada</label>
-            <select onChange={handleTemp}>
-                <option value='Verano'>Verano</option>
-                <option value='Invierno'>Invierno</option>
-                <option value='Otoño'>Otoño</option>
-                <option value='Primavera'>Primavera</option>
+           <div className={s.div4}>
+           <label>Temporada</label>
+            <select onChange={(e) => handleTemp(e)}>
+                <option value="Verano">Verano</option>
+                <option value="Invierno">Invierno</option>
+                <option value="Otoño">Otoño</option>
+                <option value="Primavera">Primavera</option>
             </select>
+               </div>
 
+            <div className={s.div5}>
             <label>Pais:</label>
-            <input list="pais" onChange={handlePais} />
-            <datalist id="pais">
-               {
-                   paises?.map(el => {
-                       return(
-                           <option value={el.id}>{el.name}</option>
-                       )
-                   })
-               }
-           </datalist>
+           
+           <select onChange={(e) => handlePais(e)}>
+              {
+                  paises?.map(el => {
+                      return(
+                          <option value={el.name}>{el.name}</option>
+                      )
+                  })
+              }
+          </select>
+            </div>
+            {input.name? <p>{input.name.map(el => `${el} `)}</p>: '' }
         
-        <button onSubmit={submit}>Submit</button>
-
+       <div className={s.div6}>
+       <button type="submit">Submit</button>
+       </div>
             </div>
             </form>
+           </div>
         </div>
      )
 }

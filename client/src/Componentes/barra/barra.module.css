@@ -4,7 +4,8 @@
     align-items: center;
     background-color: darkslategrey;
     padding:5px;
-    
+    position: relative;
+    margin: 0;
 }
 
 .ruta_form{

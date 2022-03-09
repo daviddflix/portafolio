@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { filterByContinent, filterByPopulation } from '../../redux/actions';
+import { filterActivity, filterByContinent, filterByPopulation } from '../../redux/actions';
 import m from './Filtros.module.css'
  
 export function Filtros({handleAz}){
@@ -18,6 +18,11 @@ export function Filtros({handleAz}){
         dispatch(filterByPopulation(e.target.value))
     }
 
+    const handleActivity = (e) => {
+        e.preventDefault();
+        dispatch(filterActivity(e.target.value))
+    }
+
 
      return(
       <div className={m.main_container}>
@@ -30,14 +35,15 @@ export function Filtros({handleAz}){
     </div>
          <div className={m.container}>
          <label>Filter by Activity</label>
-      <select >
+      <select onChange={handleActivity}>
           <option value=""></option>
-          <option value="">Ski</option>
-          <option value="">Skateboard</option>
-          <option value="">Snowboard</option>
-          <option value="">Biking</option>
-          <option value="">Football</option>
-          <option value="">Rafting</option>
+          <option value="All">All</option>
+          <option value="ski">Ski</option>
+          <option value="skateboard">Skateboard</option>
+          <option value="Snowboard">Snowboard</option>
+          <option value="Biking">Biking</option>
+          <option value="Football">Football</option>
+          <option value="Rafting">Rafting</option>
       </select>
              </div>
          <div>
