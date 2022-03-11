@@ -7,15 +7,15 @@ export const FILTER_ACT = 'FILTER_ACT'
 export const FILTER_CONTINENT = 'FILTER_CONTINENT'
 export const FILTER_POPULATION = 'FILTER_POPULATION'
 export const FILTERAZ = 'FILTERAZ'
+export const GET_ACTS = 'GET_ACTS'
 
 export function getCountries (title){
 
     if(title){
        return async function (dispatch){
           try {
-               const res = await axios.get(`http://localhost:3001/countries?name=${title}`);
-               console.log(res)
-               return dispatch({ type: GET_COUNTRY, payload: res.data });
+               const res = await axios.get(`http://localhost:3001/countries?name=${title}`); 
+                   return dispatch({ type: GET_COUNTRY, payload: res.data });
            } catch (err) {
                return console.error(err);
            }
@@ -49,22 +49,29 @@ export function getCountries (title){
 
  
 
- export function postAcitvity (payload){
- 
-
+ export function postAcitvity  (payload){
+ return function  (dispatch){
     try {
-        const res =  axios.post("http://localhost:3001/activity", payload);
+        const res =   axios.post("http://localhost:3001/activity", payload);
          return res
     } catch (err) {
         return console.error(err);
     }
-  
-         
-               
-       
-    
+ }
     
  } 
+
+ export function  getActs(){
+    return async function(dispatch){
+       try {
+           const res = await axios.get("http://localhost:3001/activities")
+           return dispatch({ type: GET_ACTS, payload: res.data })
+       } catch (error) {
+           console.log(error)
+       }
+    }
+}
+
 
 
  export function filterByContinent(value){

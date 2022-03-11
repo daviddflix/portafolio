@@ -1,13 +1,21 @@
-import { useDispatch } from 'react-redux';
-import { filterActivity, filterByContinent, filterByPopulation } from '../../redux/actions';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterActivity, filterByContinent, filterByPopulation, getActs } from '../../redux/actions';
 import m from './Filtros.module.css'
  
-export function Filtros({handleAz}){
-
- 
+export function Filtros({handleAz, handleAct}){
 
     const dispatch = useDispatch()
 
+    const acts = useSelector(state => state.acts)
+   
+
+    useEffect(() => {
+        dispatch(getActs())
+    }, [dispatch])
+   
+
+   
     const handleContinent = (e) => {
         e.preventDefault();
         dispatch(filterByContinent(e.target.value))
@@ -26,7 +34,7 @@ export function Filtros({handleAz}){
 
      return(
       <div className={m.main_container}>
-     <div>
+     <div className={m.container}>
      <label>A - Z Filter</label>
       <select onChange={handleAz}>
           <option value="asc">A - Z</option>
@@ -36,20 +44,23 @@ export function Filtros({handleAz}){
          <div className={m.container}>
          <label>Filter by Activity</label>
       <select onChange={handleActivity}>
-          <option value=""></option>
-          <option value="All">All</option>
-          <option value="ski">Ski</option>
-          <option value="skateboard">Skateboard</option>
-          <option value="Snowboard">Snowboard</option>
-          <option value="Biking">Biking</option>
-          <option value="Football">Football</option>
-          <option value="Rafting">Rafting</option>
+     
+      <option value="All">All Acts</option> 
+          {
+              acts?.map(el => {
+                  return(    
+                          <option value={el.nombre} key={el.nombre}>{el.nombre}</option>
+                  )
+              })
+          }
+         
+
       </select>
              </div>
-         <div>
+         <div className={m.container}>
          <label>Filter by Continent</label>
       <select onChange={handleContinent}>
-          <option value="All">All</option>
+          <option value="All">All Countries</option>
           <option value="Africa">Africa</option>
           <option value="North America">North America</option>
           <option value="Europe">Europe</option>
@@ -58,7 +69,7 @@ export function Filtros({handleAz}){
           <option value="Oceania">Oceania</option>
       </select>
              </div>
-         <div> 
+         <div className={m.container}> 
          <label>Population Filter</label>
       <select onChange={handlePopulation}>
           <option value="All">All</option>

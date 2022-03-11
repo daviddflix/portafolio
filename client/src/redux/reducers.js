@@ -1,14 +1,15 @@
-import { FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
+import { FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_ACTS, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
 
 const InicialState ={
     paises : [],
     detalle: {},
-    paises_2 : []
+    paises_2 : [],
+    acts: []
 }
 
 
  const rootReducer = (state = InicialState, action) => {
-     console.log(action)
+   
      if(action.type === GET_COUNTRY){
          return{
              ...state,
@@ -56,23 +57,30 @@ const InicialState ={
      if(action.type === FILTER_ACT){
          const act = state.paises_2.filter(el => el.activities.length)
 
-        const data = action.payload === "All"? act: act.filter(function(el) {
-            for (let i = 0; i < el.activities.length; i++) {
-                if(el.activities[i].nombre === action.payload){
-                    return el
-                } 
-            }
+        const data = action.payload === "All"? act: state.paises_2.filter(function(el) {
+           
+                    for (let i = 0; i < el.activities.length; i++) {
+                            if(el.activities[i].nombre === action.payload){
+                                    return el
+                                } 
+                            }
+                          
+                        
+                        // return  el.activities.nombre === action.payload 
+           
            
         })
-        const filterAct = act.filter(el => {
-            return el.activities.filter(el => action.payload === el.nombre)
-        })
-        console.log('act',data)
-
+      
          return{
              ...state,
              paises: data
          }
+     }
+     if(action.type === GET_ACTS){
+       return{
+           ...state,
+           acts: action.payload
+       }
      }
      
      else{

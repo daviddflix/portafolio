@@ -4,7 +4,7 @@ export function Paginado({paginado, countriesPerPage, countries}){
     
 
      const pageNumbers = []
-   
+     
 
      for (let i = 1; i < Math.ceil(countries/countriesPerPage); i++) {
           pageNumbers.push(i)

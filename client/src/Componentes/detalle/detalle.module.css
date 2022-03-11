@@ -12,6 +12,11 @@ h2{
     line-height: 0;
 }
 
+.title_activity{
+  position: relative;
+  top: 20px;
+}
+
 /* body{
   background-color: #2b2d42;
 } */
@@ -29,7 +34,8 @@ h2{
 }
 
 .container_activity{
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
   margin: 1rem;

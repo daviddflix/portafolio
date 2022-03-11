@@ -10,9 +10,16 @@ export default function Home(){
     const paises = useSelector(state => state.paises)
    const dispatch = useDispatch()
 
+  
+   
    const [order, setOrder] = useState('')
      let [currentPage, setcurrentPage] = useState(1);
-     const [countriesPerPage, setCountriesPerPage] = useState(10)
+     let countriesPerPage = 0;
+     if(currentPage === 1 ){
+       countriesPerPage = 9 
+     } else {
+      countriesPerPage = 10
+     }   
      const indexOfLastCountry = currentPage * countriesPerPage; // i10
      const indexOfFirstCountry = indexOfLastCountry - countriesPerPage // 10 - 10 = 0 
      const currentCountries = paises.slice(indexOfFirstCountry, indexOfLastCountry)
@@ -20,7 +27,6 @@ export default function Home(){
      const paginado = (pageNumber) => {
        setcurrentPage(pageNumber)
      }
-
 
   
 
