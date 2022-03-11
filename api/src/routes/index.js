@@ -18,17 +18,17 @@ const router = Router();
 router.get('/countries', async (req, res) => {
     const {name} = req.query
     let found = await Country.findAll({where: {name: {[Op.iLike]: '%' + name + '%'}}})  
-  
+                                                 
     if(name){
         try {
-           found? res.send(found): res.sendStatus(404)
+           !found.length? res.status(404).send({msg:'Sorry, cant find that'}) : res.send(found)
            
         } catch (error) {
             console.log(error)
         }
     } else{
         try {
-            let Total = await Country.findAll()
+            let Total = await Country.findAll({include: Activities})
           res.json(Total)
         } catch (error) {
             console.log(error)
@@ -52,22 +52,21 @@ router.get('/countries/:idPais', async (req, res) => {
 })
 
 router.post('/activity', async (req, res) => {
-    const {nombre, dificultad, duracion, temporada, countries} = req.body
+    const {nombre, dificultad, duracion, temporada, name} = req.body
 try {
    
-        const [activity, created] = await Activities.findOrCreate({
-            where: {nombre: nombre},
-            defaults: {
-                nombre: nombre,
-                dificultad: dificultad,
-                duracion: duracion,
-                temporada: temporada
-            }
-            
-          });
-          await activity.setCountries(countries)
-          res.json(activity)
-          console.log(created)
+        const activity = await Activities.create({
+            nombre: nombre,
+            dificultad: dificultad,
+            duracion: duracion,
+            temporada: temporada
+          })
+
+          const countries = await Country.findAll({where:{name: name }})
+          
+         await  activity.addCountry(countries)
+          res.send('Actividad Creada')
+         
     
     
     
@@ -75,6 +74,13 @@ try {
     console.log(error)
 }
 
+})
+
+router.get('/activities',  async(req, res) => {
+   let data = await  Activities.findAll({
+    attributes: ['nombre']
+  })
+   res.send(data)
 })
 
 

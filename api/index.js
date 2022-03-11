@@ -27,17 +27,17 @@ const { Actividad_Turistica, Country, Actividad } = require('./src/db');
 const dataInfo = async () => {
   try {
     const info = await axios.get('https://restcountries.com/v3/all')
-    const modify = info.data.filter(({capital}) => Boolean(capital))
+    // const modify = info.data.filter(({capital}) => Boolean(capital))
   
-  const data = await modify.map(el => {
+  const data = await info.data.map(el => {
    
     
            return { 
            name: el.name.common,
            cca3: el.cca3,   
-           capital: el.capital.toString(),
+           capital: el.capital ? el.capital[0] : ' Capital Not found',
            region:  el.region,
-           subregion : el.subregion,
+           subregion : el.subregion ? el.subregion : 'Subregion not found',
            area: el.area,
            population: el.population,
            continente: el.continents.toString(),
@@ -57,11 +57,11 @@ return data
  
 
      const info = await dataInfo() //info de la api
-   console.log(info)
+ 
     try {
         const data = await Country.findAll();// data de la tabla
         if(!data.length){
-            await  Country.bulkCreate(info)
+            await  Country.bulkCreate(info) // llena la Db
           }
     } catch (error) {
         console.log(error)
