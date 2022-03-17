@@ -8,6 +8,7 @@ export function Detalle(){
     const {idPais} = useParams()
     const dispatch = useDispatch()
     const detalle = useSelector(state => state.detalle)
+    const isLoading = useSelector(state => state.isLoading)
    
     useEffect(()=> {
           dispatch(getDetail(idPais))
@@ -17,7 +18,7 @@ export function Detalle(){
         <div className={s.main_container}>
           <Nav/>
        {
-           <div className={s.container}>
+          isLoading?  <div className={s.container}>
           <h2>Country: <p>{detalle.name}</p></h2>
            <img src={detalle.flags} alt="" />
            <h2>Capital: <p>{detalle.capital}</p></h2>
@@ -26,7 +27,7 @@ export function Detalle(){
            <h2>Area: <p>{nFormatterArea(detalle.area)}</p></h2>
            
            <h2>Subregion: <p>{detalle.subregion}</p></h2>
-           <h2 className={s.title_activity}>Activities: { detalle.activities?  detalle.activities.map(el=> {
+           <h2>   {detalle.activities?.map(el=> {
               return(
                  <div className={s.container_activity} key={el.id}>  
             <h2 className={s.activities}>Activity: <p>{el.nombre}</p></h2> 
@@ -35,11 +36,10 @@ export function Detalle(){
               <h2 className={s.activities}>Season: <p>{el.temporada}</p></h2>  
                  </div>
               )
-           }) : <p>No Act</p> }
-          </h2>
+           })   }</h2>
+   
            
-           
-          </div>
+          </div>: <p className={s.loader}></p>
        }
 
       </div>

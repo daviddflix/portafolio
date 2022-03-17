@@ -1,24 +1,27 @@
-import { FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_ACTS, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
+import {  FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_ACTS, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
 
 const InicialState ={
     paises : [],
     detalle: {},
     paises_2 : [],
-    acts: []
+    acts: [],
+    isLoading : false
 }
 
 
  const rootReducer = (state = InicialState, action) => {
    
      if(action.type === GET_COUNTRY){
+         
          return{
              ...state,
-             paises: action.payload,
+             paises: action.payload
          }
      } if(action.type === GET_DETAILS){
          return {
              ...state,
-             detalle: action.payload
+             detalle: action.payload,
+             isLoading: true
          }
      } if (action.type === GET_All){
          return{
@@ -57,30 +60,28 @@ const InicialState ={
      if(action.type === FILTER_ACT){
          const act = state.paises_2.filter(el => el.activities.length)
 
-        const data = action.payload === "All"? act: state.paises_2.filter(function(el) {
-           
-                    for (let i = 0; i < el.activities.length; i++) {
-                            if(el.activities[i].nombre === action.payload){
-                                    return el
-                                } 
-                            }
-                          
-                        
-                        // return  el.activities.nombre === action.payload 
-           
-           
-        })
-      
+        const data = action.payload === "All"? act: act.filter(el =>  {
+           for (let i = 0; i < el.activities.length; i++) {
+               if(action.payload === el.activities[i].nombre){
+                   return el
+               }
+               
+           }
+           return null
+        } )
+        console.log(data)
+        
          return{
              ...state,
              paises: data
          }
      }
      if(action.type === GET_ACTS){
-       return{
-           ...state,
-           acts: action.payload
-       }
+    
+             return{
+                ...state,
+                acts: action.payload
+             }
      }
      
      else{

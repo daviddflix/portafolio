@@ -8,27 +8,24 @@ import { Paginado } from "../paginado/paginado"
 import { Filtros } from "../filtros/Filtros"
 export default function Home(){
     const paises = useSelector(state => state.paises)
+   
    const dispatch = useDispatch()
 
   
    
-   const [order, setOrder] = useState('')
+   const [setOrder] = useState('')
      let [currentPage, setcurrentPage] = useState(1);
-     let countriesPerPage = 0;
-     if(currentPage === 1 ){
-       countriesPerPage = 9 
-     } else {
-      countriesPerPage = 10
-     }   
+     let [countriesPerPage] = useState(10);
+    
+    
      const indexOfLastCountry = currentPage * countriesPerPage; // i10
      const indexOfFirstCountry = indexOfLastCountry - countriesPerPage // 10 - 10 = 0 
      const currentCountries = paises.slice(indexOfFirstCountry, indexOfLastCountry)
-                                    //     start i=0            end i=10
+                             
      const paginado = (pageNumber) => {
        setcurrentPage(pageNumber)
      }
 
-  
 
 const handleAz = (e)=> {
   e.preventDefault();

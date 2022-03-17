@@ -3,13 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterActivity, filterByContinent, filterByPopulation, getActs } from '../../redux/actions';
 import m from './Filtros.module.css'
  
-export function Filtros({handleAz, handleAct}){
+export function Filtros({handleAz}){
 
     const dispatch = useDispatch()
 
-    const acts = useSelector(state => state.acts)
-   
+    let acts = useSelector(state => state.acts)
+    
+    var hash = {};
+    acts = acts.filter(function(current) {
+  var exists = !hash[current.nombre];
+  hash[current.nombre] = true;
+  return exists;
+});
 
+
+    
     useEffect(() => {
         dispatch(getActs())
     }, [dispatch])
@@ -47,7 +55,7 @@ export function Filtros({handleAz, handleAct}){
      
       <option value="All">All Acts</option> 
           {
-              acts?.map(el => {
+            acts?.map(el => {
                   return(    
                           <option value={el.nombre} key={el.nombre}>{el.nombre}</option>
                   )

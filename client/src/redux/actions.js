@@ -9,15 +9,17 @@ export const FILTER_POPULATION = 'FILTER_POPULATION'
 export const FILTERAZ = 'FILTERAZ'
 export const GET_ACTS = 'GET_ACTS'
 
+
 export function getCountries (title){
 
     if(title){
        return async function (dispatch){
           try {
                const res = await axios.get(`http://localhost:3001/countries?name=${title}`); 
+               console.log(res)
                    return dispatch({ type: GET_COUNTRY, payload: res.data });
            } catch (err) {
-               return console.error(err);
+               return console.log(err);
            }
                
        } 
@@ -71,6 +73,8 @@ export function getCountries (title){
        }
     }
 }
+
+
 
 
 

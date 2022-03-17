@@ -17,9 +17,9 @@ h2{
   top: 20px;
 }
 
-/* body{
-  background-color: #2b2d42;
-} */
+body{
+  background-color: #e5e5e5;
+}
 
 
 .container{
@@ -27,6 +27,7 @@ h2{
    display: flex;
    align-items: center;
    flex-direction: column;
+  
 }
 
 .activities{

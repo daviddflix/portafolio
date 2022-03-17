@@ -3,10 +3,13 @@
     font-weight: 700;
     background-color: #0394fc;
     border-radius: 5px;
+    text-decoration: none;
+    color: #112A46;
 }
 
-.boton:hover{
-    background-color: #29bf12;
+.boton:focus{
+    background-color: #4A1414;
+    color: #0394FC;
 }
 
 .container{
@@ -21,6 +24,11 @@ ul{
   position: relative;
 bottom: 15px;
    
+}
+
+.active{
+    background-color: black;
+    color: white;
 }
 
 
