@@ -27,7 +27,7 @@ const { Actividad_Turistica, Country, Actividad } = require('./src/db');
 const dataInfo = async () => {
   try {
     const info = await axios.get('https://restcountries.com/v3/all')
-    // const modify = info.data.filter(({capital}) => Boolean(capital))
+  
   
   const data = await info.data.map(el => {
    

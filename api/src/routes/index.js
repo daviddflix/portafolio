@@ -15,17 +15,21 @@ const router = Router();
 
 
 
+
 router.get('/countries', async (req, res) => {
     const {name} = req.query
     let found = await Country.findAll({where: {name: {[Op.iLike]: '%' + name + '%'}}})  
-                                                 
+                                              
     if(name){
-        try {
-           !found.length? res.status(404).send({msg:'Sorry, cant find that'}) : res.send(found)
-           
-        } catch (error) {
-            console.log(error)
+      try {
+        if(found.length){
+            return res.send(found)
+        } else {
+          res.status(404).json({message: 'Country not found'})
         }
+      } catch (error) {
+          console.log(error)
+      }
     } else{
         try {
             let Total = await Country.findAll({include: Activities})
@@ -36,6 +40,10 @@ router.get('/countries', async (req, res) => {
         
     }
    
+})
+
+router.get('/error', (req, res) => {
+    res.status(404).send("<h1>country not found</h1>")
 })
 
 router.get('/countries/:idPais', async (req, res) => {
@@ -76,12 +84,13 @@ try {
 
 })
 
-router.get('/activities',  async(req, res) => {
+router.get('/activities',  async (req, res) => {
    let data = await  Activities.findAll({
     attributes: ['nombre']
   })
    res.send(data)
 })
+
 
 
 
