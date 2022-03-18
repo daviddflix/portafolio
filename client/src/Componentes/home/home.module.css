@@ -51,6 +51,7 @@ h1{
 .buscador{
   position: relative;
   left: 300px;
+  top: 0rem;
 }
 
 
@@ -77,4 +78,22 @@ h1{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+@media screen and (max-width:500px){
+  .imagen{
+    height: 70px;
+    width: 150px;
+  }
+
+  .buscador{
+    position: relative;
+    bottom: 0.7rem;
+    left: auto;
+  }
+
+ 
+
+  
 }

@@ -36,5 +36,46 @@
   display: flex;
 }
 
+@media screen and (max-width:500px){
+
+  .img{
+    position: relative;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .container{
+    overflow:hidden;
+    display: flex;
+  }
+
+  .boton{
+    position: absolute;
+    left: 9.5rem;
+    text-decoration: none;
+    color: aqua;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 2;
+    
+  }
+  
+  .boton:hover{
+      background-color: white;
+      color: black;
+  }
+  
+  .title{
+    position: absolute;
+    left: 2rem;
+    z-index: 1;
+    color: aliceblue;
+  }
+
+
+}
+
 
   

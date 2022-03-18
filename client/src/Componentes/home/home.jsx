@@ -13,7 +13,7 @@ export default function Home(){
 
   
    
-   const [setOrder] = useState('')
+   const [order, setOrder] = useState('')
      let [currentPage, setcurrentPage] = useState(1);
      let [countriesPerPage] = useState(10);
     

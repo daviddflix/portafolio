@@ -45,5 +45,107 @@
     left: 150px;
 }
 
+.icon{
+    visibility: hidden;
+}
+
+
+
+
+@media screen and (max-width: 500px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: solid 2px yellow;
+        height: 40px;
+    }
+
+    .img{
+      display: none;
+    }
+
+    .icon{
+        visibility: visible;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        padding: 8px;
+       
+    }
+
+    .icon:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .ruta_form{
+       
+       top: 5rem;
+       width: 100%;
+    }
+
+    .ruta_home{
+       
+        top: 13rem;
+        width: 100%;
+    }
+
+    .ruta_form_see{
+        visibility: hidden;
+    }
+
+    .ruta_home_see{
+        visibility: hidden;
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 3.2rem;
+        right: 2rem;
+         
+        
+       
+      
+    }
+
+    .ruta_form{
+        text-decoration: none;
+        margin-right: 100px;
+        color: black;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #29bf12;
+        font-weight: 600;
+       
+     }
+     
+     .ruta_form:hover{
+         background-color: black;
+         color: white;
+     }
+     
+     .ruta_home:hover{
+         background-color: black;
+         color: white;
+     }
+     
+     .ruta_home{
+         text-decoration: none;
+         color: black;
+         padding: 8px;
+         border-radius: 5px;
+         background-color: #29bf12;
+         font-weight: 600;
+     }
+
+  
+
+    
+}
+
 
 
