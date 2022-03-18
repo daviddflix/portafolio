@@ -51,10 +51,11 @@ select{
 .icon{
     position: absolute;
     right: 24rem;
-    bottom: 40rem;
+    bottom: 45rem;
     visibility: visible;
-}
-
+    z-index: 1;
+} 
+ 
 
 
 
