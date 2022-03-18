@@ -9,13 +9,13 @@
 
 .boton{
   position: absolute;
-  bottom: 25em;
+  bottom: 20em;
   text-decoration: none;
   color: aqua;
   background-color: black;
   border-radius: 5px;
   padding: 10px;
-  left: 45rem;
+  left: 38rem;
   
 }
 
@@ -26,8 +26,8 @@
 
 .title{
   position: absolute;
-  bottom: 30rem;
-  left: 36rem;
+  bottom: 25rem;
+  left: 30rem;
   color: aliceblue;
 }
 
