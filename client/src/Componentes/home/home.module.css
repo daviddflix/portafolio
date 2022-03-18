@@ -104,7 +104,7 @@ h1{
     animation: spin 2s linear infinite;
     position: relative;
     left: 10rem;
-    bottom : 20rem;
+    bottom : 17rem;
   }
   
   @-webkit-keyframes spin {

@@ -6,7 +6,7 @@
     grid-row-gap: 0px;
     }
     
-    .div1 { grid-area: 2 / 2 / 3 / 3; }
+    .div1 { grid-area: 2 / 2 / 3 / 3; } 
     .div2 { grid-area: 3 / 2 / 4 / 3; }
     .div3 { grid-area: 4 / 2 / 5 / 3; }
     .div4 { grid-area: 2 / 4 / 3 / 5; }
@@ -20,7 +20,8 @@
        justify-content: center;
        height: 100vh;
        background-color: #e5e5e5;
-       
+       position: absolute;
+       top: 7rem
     }
     
 

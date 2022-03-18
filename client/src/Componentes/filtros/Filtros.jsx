@@ -17,7 +17,7 @@ export function Filtros({handleAz}){
   return exists;
 });
 
-const [filter, setFilter] = useState(true)
+const [filter, setFilter] = useState(false)
 
 const onFilter = () => {
     setFilter(!filter)
