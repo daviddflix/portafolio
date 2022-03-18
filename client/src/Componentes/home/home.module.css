@@ -35,7 +35,8 @@
 .boton{
   padding: 10px;
   border-radius: 5px;
-  font-size: 1rem
+  font-size: 1rem;
+  
 }
 
 h1{
@@ -49,7 +50,7 @@ h1{
 
 .buscador{
   position: relative;
-  left: 350px;
+  left: 300px;
 }
 
 
