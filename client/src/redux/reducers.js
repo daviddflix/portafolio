@@ -5,7 +5,8 @@ const InicialState ={
     detalle: {},
     paises_2 : [],
     acts: [],
-    isLoading : false
+    isLoading : false,
+    filterIcon : true
 }
 
 

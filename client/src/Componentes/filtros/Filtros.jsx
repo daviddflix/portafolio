@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterActivity, filterByContinent, filterByPopulation, getActs } from '../../redux/actions';
 import m from './Filtros.module.css'
-import { FaList } from 'react-icons/fa'
+import { FaFilter} from 'react-icons/fa'
 
 export function Filtros({handleAz}){
 
@@ -17,11 +17,11 @@ export function Filtros({handleAz}){
   return exists;
 });
 
-const [show, setShow] = useState(true)
+const [filter, setFilter] = useState(true)
 
-const showRoutes = () => {
-    setShow(!show)
-    console.log(show)
+const onFilter = () => {
+    setFilter(!filter)
+    console.log(filter)
 }
 
 
@@ -47,11 +47,11 @@ const showRoutes = () => {
         dispatch(filterActivity(e.target.value))
     }
 
-
+ 
      return(
        <div>
-           <FaList className={m.icon} onClick={showRoutes}/>
-            <div className={show? m.main_container : m.main_container_no}>
+           <FaFilter className={m.icon} onClick={onFilter}/>
+            <div className={filter? m.main_container : m.main_container_no}>
      <div className={m.container}>
      <label>A - Z Filter</label>
       <select onChange={handleAz}>
