@@ -13,7 +13,7 @@ export default function Home(){
 
   
    
-   const [order, setOrder] = useState('')
+     let [, setOrder] = useState('')
      let [currentPage, setcurrentPage] = useState(1);
      let [countriesPerPage] = useState(10);
     
@@ -27,12 +27,17 @@ export default function Home(){
      }
 
 
+     
+
+
 const handleAz = (e)=> {
   e.preventDefault();
   dispatch(filterAz(e.target.value));
   setcurrentPage(1)
-  setOrder(`${e.target.value}`)
+  setOrder(`${e.target.value}`);
+
 }
+
 
 
 useEffect(()=>{
