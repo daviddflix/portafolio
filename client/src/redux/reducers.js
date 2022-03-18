@@ -6,7 +6,7 @@ const InicialState ={
     paises_2 : [],
     acts: [],
     isLoading : false,
-    filterIcon : true
+   
 }
 
 
