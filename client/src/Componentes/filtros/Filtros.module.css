@@ -50,8 +50,8 @@ select{
 
 .icon{
     position: absolute;
-    right: 23rem;
-    bottom: 43rem;
+    right: 23.5rem;
+    bottom: 44rem;
     visibility: visible;
     z-index: 1;
 } 
