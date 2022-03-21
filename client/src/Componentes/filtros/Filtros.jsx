@@ -57,7 +57,7 @@ const showFilter = () => {
            <FilterIcon>
                 <FaFilter onClick={showFilter}/>
           </FilterIcon>
-            <div className={filter? m.main_container_no: m.main_container}>
+            <div className={filter? m.main_container: m.main_container_no}>
            
 
             <div className={m.container}>

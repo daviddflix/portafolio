@@ -18,7 +18,7 @@ export const MainContainer = styled.div`
         background-color:dimgray;
         z-index: 2;
         position: relative;
-        top: ${({open}) => open? "100px" : "0"} ;
+        left: ${({open}) => open? "none" : "0"} ;
 
     }
     
