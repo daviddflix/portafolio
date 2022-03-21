@@ -121,7 +121,7 @@ export function Form(){
 
            
             <div className={s.div1}>
-            <label htmlFor="input">Activity</label>
+            <label className={s.labelActivity} htmlFor="input">Activity</label>
             <Input onChange={(e) => handleInputChange(e)} value={input.nombre} name='nombre' id="input" placeholder="Write an activity" />      
             {<Error>{errors.nombre}</Error> }
             </div>

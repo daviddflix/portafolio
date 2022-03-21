@@ -14,7 +14,7 @@ export function getCountries (title){
 
     if(title){
        return async function (dispatch){
-          try {
+          try {                             // https://countriesa-d.herokuapp.com/countries?name=${title}
                const res = await axios.get(`https://countriesa-d.herokuapp.com/countries?name=${title}`); 
                console.log(res)
                    return dispatch({ type: GET_COUNTRY, payload: res.data });
@@ -37,7 +37,7 @@ export function getCountries (title){
 
  export function getAll (){
   return async function (dispatch){
-         try {
+         try {                          //https://countriesa-d.herokuapp.com/countries
               const res = await axios.get(`https://countriesa-d.herokuapp.com/countries`);
               return dispatch({ type: GET_All, payload: res.data });
           } catch (err) {
@@ -53,7 +53,7 @@ export function getCountries (title){
 
  export function postAcitvity  (payload){
  return function  (dispatch){
-    try {
+    try {                       // https://countriesa-d.herokuapp.com/activity
         const res =   axios.post("https://countriesa-d.herokuapp.com/activity", payload);
          return res
     } catch (err) {
@@ -65,7 +65,7 @@ export function getCountries (title){
 
  export function  getActs(){
     return async function(dispatch){
-       try {
+       try {                            //https://countriesa-d.herokuapp.com/activities
            const res = await axios.get("https://countriesa-d.herokuapp.com/activities")
            return dispatch({ type: GET_ACTS, payload: res.data })
        } catch (error) {

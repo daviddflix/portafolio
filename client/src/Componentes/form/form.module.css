@@ -6,7 +6,7 @@
     grid-row-gap: 0px;
     }
     
-    .div1 { grid-area: 2 / 2 / 3 / 3; } 
+    .div1 { grid-area: 2 / 2 / 3 / 3; display: flex; flex-direction: column; position: relative; left: 2rem; bottom: 1rem; }
     .div2 { grid-area: 3 / 2 / 4 / 3; }
     .div3 { grid-area: 4 / 2 / 5 / 3; }
     .div4 { grid-area: 2 / 4 / 3 / 5; }
@@ -22,6 +22,11 @@
        background-color: #e5e5e5;
        position: absolute;
        top: 7rem
+    }
+
+    .labelActivity{
+        position: relative;
+        right: 2rem;
     }
     
 
@@ -40,7 +45,7 @@
     }
 
     input{
-        padding: 10px;
+        padding: 7;
         outline: none;
        
     }
@@ -63,7 +68,7 @@
     }
 
 
-    @media screen and (max-width :500px) {
+    @media screen and (max-width :600px) {
         .form {
             display: grid;
             grid-template-columns: repeat(5, 1fr);

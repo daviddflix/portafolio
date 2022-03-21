@@ -1,47 +1,56 @@
-import { NavLink } from "react-router-dom";
-import s from './barra.module.css'
-import img from '../img/_114936566_coronavirus_index_wolrd_976.png'
 import { SearchBar } from "../SearchBar/searchbar";
-import { FaList} from 'react-icons/fa'
 import { useState } from "react";
+import { Buscador, ContainerRutas, Link, LinkLogo, Logo, MainContainer, Menu, MobileIcon, Wrapper } from "./styles";
 
 
 export function Nav(){ 
 
-  const [show, setShow] = useState(true)
-  
-  
+
+     
+     const [show, setShow] = useState(false)
 
   const showRoutes = () => {
        setShow(!show)
-       console.log(show)
+       
   }
 
 
 
+
      return(
-<div>
-<div className={s.container}>
-<FaList className={s.icon} onClick={showRoutes}/>
 
-<div  className={s.nav} >
+<MainContainer>
+  <Wrapper>
 
-<NavLink   className={!show? s.ruta_form: s.ruta_form_see}  to='/form' exact>
-   Create Activity
-</NavLink>
+     <LinkLogo to='/home'>
+     <Logo/>
+     </LinkLogo>
 
-<NavLink className={!show? s.ruta_home: s.ruta_home_see}   to='/home'>
-    Home
-</NavLink>
+    
+    <Menu open={show} >
+    
+          <ContainerRutas>
+               <Link to='/form' exact>
+               Create Activity
+               </Link>
+          </ContainerRutas>
+     
+          <ContainerRutas>
+               <Link to='/home'>
+               Home
+               </Link>
+          </ContainerRutas>
 
-</div>
+    </Menu>
+  
+  <Buscador>
+     <SearchBar/>
+  </Buscador>
 
-<SearchBar/>
+  <MobileIcon onClick={showRoutes}/>
+  </Wrapper>
+ </MainContainer>
 
 
-<img className={s.img} src={img} alt="not found" />
- </div>
-
-</div>
      )
 }

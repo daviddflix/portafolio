@@ -6,7 +6,6 @@ const InicialState ={
     paises_2 : [],
     acts: [],
     isLoading : false,
-   
 }
 
 
@@ -36,6 +35,7 @@ const InicialState ={
          return{
              ...state,
              paises: filterContinent
+             
          }
      } if (action.type === FILTER_POPULATION){
         const filterPopulation = action.payload === '1000000'? 
@@ -70,11 +70,11 @@ const InicialState ={
            }
            return null
         } )
-        console.log(data)
+     
         
          return{
              ...state,
-             paises: data
+             paises: data,
          }
      }
      if(action.type === GET_ACTS){

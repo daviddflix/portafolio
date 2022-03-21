@@ -5,9 +5,11 @@ const colores = {
 }
 
 export const Input = styled.input`
-   padding: 10px;
+   padding: 10px ;
+   position: relative;
+   right: 1rem;
    outline: none;
-   width: 220px;
+   width: 220px; 
    border-radius: 5px;
    
    &:focus{

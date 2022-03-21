@@ -20,11 +20,7 @@
     
 }
 
-ul{
-  position: relative;
-bottom: 15px;
-   
-}
+
 
 .active{
     background-color: black;
@@ -39,8 +35,7 @@ bottom: 15px;
         border-radius: 5px;
         text-decoration: none;
         color: #112A46;
-        position: relative;
-        right: 1rem;
+        
     }
     
 }
