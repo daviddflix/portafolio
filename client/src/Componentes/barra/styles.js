@@ -47,9 +47,9 @@ list-style: none;
 
    @media screen and (max-width: 600px){
        position: absolute;
-       top: 89px;
+       top: 73px;
        z-index: 1;
-       left: ${({open}) => open? "0" : "40rem"} ;
+       left: ${({open}) => open? "0" : "-100%"} ;
        transition: 0.5s all ease;
        width: 100%;
    }

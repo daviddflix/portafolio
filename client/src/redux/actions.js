@@ -28,7 +28,7 @@ export function getCountries (title){
  }
 
  export function getDetail(idPais){
-    return async function (dispatch){
+    return async function (dispatch){  //https://countriesa-d.herokuapp.com/countries/${idPais}
        const data = await fetch(`https://countriesa-d.herokuapp.com/countries/${idPais}`)
        const info = await data.json()
        return dispatch({ type: GET_DETAILS, payload: info })
