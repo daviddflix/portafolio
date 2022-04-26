@@ -51,8 +51,6 @@
   font-size: 1rem;
   border: none;
   background-color: #29bf12;
-  
-  
 }
 
 h1{
@@ -143,13 +141,22 @@ h1{
  
   .input{
     outline: none;
-    padding: 13px;
+    padding: 12px;
     border-radius: 25px 0 0 25px;
     width: 66%;
-    font-size: .8rem;
+    font-size: .9rem;
     border: none;
     
   }
+
+  .boton{
+    padding: 12px;
+    border-radius: 0 25px 25px 0;
+    font-size: .9rem;
+    border: none;
+    background-color: #29bf12;
+  }
+  
 
   
 }

@@ -146,8 +146,8 @@ export const FilterIcon = styled.div`
     @media screen and (max-width: 600px) {
         display: inline;
         position: relative;
-        right: 7rem;
-        bottom: 2.5rem
+        right: 7.2rem;
+        bottom: 2.3rem
 }
 
 &:active{
