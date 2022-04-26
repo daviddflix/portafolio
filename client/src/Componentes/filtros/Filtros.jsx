@@ -6,6 +6,7 @@ import { FilterIcon } from '../barra/styles';
 import m from './Filtros.module.css'
 
 
+
 export function Filtros({handleAz}){
 
     const dispatch = useDispatch()
@@ -52,7 +53,7 @@ const showFilter = () => {
     }
 
  
-     return(
+     return( 
        <div>
            <FilterIcon>
                 <FaFilter onClick={showFilter}/>
@@ -61,17 +62,17 @@ const showFilter = () => {
            
 
             <div className={m.container}>
-            <label>A - Z Filter</label>
-            <select onChange={handleAz}>
+            <select className={m.selection} onChange={handleAz}>
                 <option value="asc">A - Z</option>
                 <option value="desc">Z - A</option>
             </select>
             </div>
+      
+
                 <div className={m.container}>
-                <label>Filter by Activity</label>
-            <select onChange={handleActivity}>
+            <select className={m.selection}   onChange={handleActivity}>
             
-            <option value="All">All Acts</option> 
+            <option value="All">All Activities</option> 
                 {
                     acts?.map(el => {
                         return(    
@@ -84,8 +85,7 @@ const showFilter = () => {
             </select>
                     </div>
                 <div className={m.container}>
-                <label>Filter by Continent</label>
-            <select onChange={handleContinent}>
+            <select className={m.selection}  onChange={handleContinent}>
                 <option value="All">All Countries</option>
                 <option value="Africa">Africa</option>
                 <option value="North America">North America</option>
@@ -96,13 +96,12 @@ const showFilter = () => {
             </select>
                     </div>
                 <div className={m.container}> 
-                <label>Population Filter</label>
-            <select onChange={handlePopulation}>
+            <select className={m.selection}  onChange={handlePopulation}>
                 <option value="All">All</option>
                 <option value='1000000'>1 - 1 millon</option>
                 <option value="1000001">1 millon - 50 millon</option>
                 <option value="50000000">50 millon - 400 millon</option>
-                <option value="1000000000">400 millon 0 mas</option>
+                <option value="1000000000">400 millon or more</option>
             </select>
             </div>
       </div>

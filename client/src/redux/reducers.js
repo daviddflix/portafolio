@@ -1,4 +1,4 @@
-import {  FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_ACTS, GET_All, GET_COUNTRY, GET_DETAILS } from "./actions"
+import {  FILTERAZ, FILTER_ACT, FILTER_CONTINENT, FILTER_POPULATION, GET_ACTS, GET_All, GET_COUNTRY, GET_DETAILS, NOT_FOUND } from "./actions"
 
 const InicialState ={
     paises : [],
@@ -6,6 +6,7 @@ const InicialState ={
     paises_2 : [],
     acts: [],
     isLoading : false,
+    notFound : false
 }
 
 
@@ -15,7 +16,8 @@ const InicialState ={
          
          return{
              ...state,
-             paises: action.payload
+             paises: action.payload,
+             notFound: false
          }
      } if(action.type === GET_DETAILS){
          return {
@@ -83,6 +85,14 @@ const InicialState ={
                 ...state,
                 acts: action.payload
              }
+     }
+     if(action.type === NOT_FOUND){
+         return{
+             ...state,
+             paises : [],
+             paises_2 : [],
+             notFound: action.payload
+         }
      }
      
      else{

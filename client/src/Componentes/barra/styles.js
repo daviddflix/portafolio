@@ -5,9 +5,8 @@ import { FaList} from 'react-icons/fa'
 
 export const  MainContainer = styled.div`
     width: 100%;
-    height: 70px;
+    height: 60px;
     background-color: darkslategrey;
-   
     
 `
 
@@ -35,8 +34,13 @@ export const LinkLogo = styled(NavLink)`
 
 export const Logo = styled(BiWorld)`
       
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    color: green;
+
+    &:hover{
+        color: #29bf12;
+    }
     
 `;
 
@@ -76,7 +80,9 @@ export const Link = styled(NavLink)`
     font-weight: 400;
     text-decoration: none;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
+    margin: 1rem;
+    border-radius: 5px;
   
     &:hover{
         transition: 0.5s all ease;
@@ -97,6 +103,12 @@ export const Link = styled(NavLink)`
 export const Buscador = styled.div`
   position: relative;
   left: 1rem ;
+
+  @media screen and (max-width:600px){
+        width: 60% ;
+       
+    }
+
 `;
 
 
@@ -111,13 +123,13 @@ export  const MobileIcon = styled(FaList)`
     @media screen and (max-width: 600px) {
         display: block;
         position: relative;
-        right: 1rem;
+        right: 1.2rem;
 }
 
 @media screen and (max-width: 450px) {
         display: block;
         position: relative;
-        right: .5rem;
+        right: .9rem;
 }
 
 &:active{
@@ -134,8 +146,8 @@ export const FilterIcon = styled.div`
     @media screen and (max-width: 600px) {
         display: inline;
         position: relative;
-        right: 8.8rem;
-        bottom: 2.8rem
+        right: 7rem;
+        bottom: 2.5rem
 }
 
 &:active{

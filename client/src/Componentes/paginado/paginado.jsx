@@ -1,5 +1,7 @@
 import s from  './paginado.module.css'
-export function Paginado({paginado, countriesPerPage, countries}){
+import Pagination from '@mui/material/Pagination';
+
+export function Paginado({paginado, countriesPerPage, countries, currentPage}){
 
     
 
@@ -12,21 +14,25 @@ export function Paginado({paginado, countriesPerPage, countries}){
      }
 
      return(
+
+          <nav className={s.container}>
+          <Pagination defaultValue={currentPage} count={pageNumbers.length} variant="outlined" onChange={(e, v) => paginado(v)} shape="rounded" color="secondary"/>
+          </nav>
      
-           <ul>
-                {
-                     pageNumbers && pageNumbers.map(number => {
-                         return(
-                              <div className={s.container} key={number}>
-                              <li className={s.li} >
-                              <button className={s.boton}  onClick={ () => paginado(number)}>{number}</button>
-                            </li>
-                              </div>
+          //  <ul>
+          //       {
+          //            pageNumbers && pageNumbers.map(number => {
+          //                return(
+          //                     <div className={s.container} key={number}>
+          //                     <li className={s.li} >
+          //                     <button className={s.boton}  onClick={ () => paginado(number)}>{number}</button>
+          //                   </li>
+          //                     </div>
                              
-                         )
-                     })
-                }
-           </ul>
+          //                )
+          //            })
+          //       }
+          //  </ul>
    
      )
 }

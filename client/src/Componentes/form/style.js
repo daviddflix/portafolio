@@ -6,11 +6,9 @@ const colores = {
 
 export const Input = styled.input`
    padding: 10px ;
-   position: relative;
-   right: 1rem;
    outline: none;
-   width: 220px; 
-   border-radius: 5px;
+   width: 240px;
+  
    
    &:focus{
     border:  solid 2px ${colores.primario};
@@ -20,7 +18,6 @@ export const Input = styled.input`
 export const Select = styled.select`
     padding: 10px;
     width: 240px;
-    margin-bottom: 15px;
     border-color: none;
 
     &:focus{
@@ -31,7 +28,7 @@ export const Select = styled.select`
 
 export const Boton = styled.button`
         border-radius: 5px;
-        padding: 15px 25px 15px 25px;
+        padding: 13px 35px 13px 35px;
         background-color: #023e8a;
         color: white;
 

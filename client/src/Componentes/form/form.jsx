@@ -4,6 +4,7 @@ import { getAll, postAcitvity } from "../../redux/actions"
 import { Nav } from "../barra/barra"
 import s from './form.module.css'
 import { Input, Select, Boton, Error} from "./style"
+import swal from 'sweetalert';
 
 
 let handleError = (input) => {
@@ -53,8 +54,6 @@ export function Form(){
         temporada: '',
         name: []
     })
-     
-      
     
     
     let handleInputChange = (e) => {
@@ -102,7 +101,11 @@ export function Form(){
             temporada: '',
             name: []
         })
-        alert('Activity created')
+        swal({
+            title: "Great!",
+            text: "Activity created successfully",
+            icon: "success",
+          });
     }
 
     useEffect(() => {
@@ -112,37 +115,40 @@ export function Form(){
             
  
     return(
-        <div>
+        <div className={s.main_container} >
+            
+            <div>
             <Nav/>
+            </div>
 
-           <div className={s.main_container}>
+           <div >
            <form onSubmit={(e) => submit(e)}>
             <div className={s.form}>
 
            
             <div className={s.div1}>
-            <label className={s.labelActivity} htmlFor="input">Activity</label>
+            <label className={s.label} htmlFor="input">Activity</label>
             <Input onChange={(e) => handleInputChange(e)} value={input.nombre} name='nombre' id="input" placeholder="Write an activity" />      
             {<Error>{errors.nombre}</Error> }
             </div>
            
    
-         <div className={s.div2}>
-         <label>Difficulty</label>    
-            <Select name="dificultad" onChange={(e) => handleDificultad(e)} >
-                <option value=''></option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-            </Select> 
-            {<Error>{errors.dificultad}</Error> }          
+            <div className={s.div2}>
+            <label className={s.label} >Difficulty</label>    
+                <Select name="dificultad" onChange={(e) => handleDificultad(e)} >
+                    <option value=''></option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                </Select> 
+                {<Error>{errors.dificultad}</Error> }          
             </div>
 
    
             <div className={s.div3}>
-            <label>Duration</label>
+            <label className={s.label} >Duration</label>
            <Select name="duracion" onChange={(e) => handleDuration(e)}>
                <option value=""></option>
                <option value="1">1 day</option>
@@ -152,10 +158,10 @@ export function Form(){
                <option value="5">5 days</option>
            </Select>
            {<Error>{errors.duracion}</Error> }
-                </div>
+             </div>
     
            <div className={s.div4}>
-           <label>Season</label>
+           <label className={s.label} >Season</label>
             <Select name="temporada" onChange={(e) => handleTemp(e)}>
                 <option value=""></option>
                 <option value="Verano">Summer</option>
@@ -164,10 +170,10 @@ export function Form(){
                 <option value="Primavera">Spring</option>
             </Select>
             {<Error>{errors.temporada}</Error> }
-               </div>
+            </div>
    
             <div className={s.div5}>
-            <label>Country</label>
+            <label className={s.label} >Country</label>
            <Select name="name"  onChange={(e) => handlePais(e)} >
               {
                   paises?.map(el => {
@@ -177,18 +183,18 @@ export function Form(){
                   })
               }
           </Select>
-          {input.name.map(el => <p key={el} className={s.pais}>{el}</p> ) }
-            </div>
-           
-           
+         <div className={s.pais}> {input.name.map(el => <p key={el} style={{color: '#4A1414'}} >{el}</p> ) }</div>
+            </div> 
         
-       <div className={s.div6}>
-       
-       <Boton type="submit" disabled={!input.nombre || !input.name || !input.dificultad || !input.duracion || !input.temporada} className={s.boton} >Submit</Boton>
-       </div>
+            <div className={s.div6}>
+            
+            <Boton type="submit" disabled={!input.nombre || !input.name || !input.dificultad || !input.duracion || !input.temporada} >Submit</Boton>
+            </div>
+
             </div>
             </form>
            </div>
+         
         </div>
      )
 }

@@ -13,11 +13,9 @@
 }
 
 .container{
-    display: inline-flex;
-    flex-direction: row;
-    text-decoration: none;
-    list-style: none;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

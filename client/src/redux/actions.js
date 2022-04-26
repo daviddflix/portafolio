@@ -8,6 +8,7 @@ export const FILTER_CONTINENT = 'FILTER_CONTINENT'
 export const FILTER_POPULATION = 'FILTER_POPULATION'
 export const FILTERAZ = 'FILTERAZ'
 export const GET_ACTS = 'GET_ACTS'
+export const NOT_FOUND = 'NOT_FOUND'
 
 
 export function getCountries (title){
@@ -16,10 +17,14 @@ export function getCountries (title){
        return async function (dispatch){
           try {                             // https://countriesa-d.herokuapp.com/countries?name=${title}
                const res = await axios.get(`https://countriesa-d.herokuapp.com/countries?name=${title}`); 
-               console.log(res)
-                   return dispatch({ type: GET_COUNTRY, payload: res.data });
+              
+               if(res.data.status === 404){
+                 dispatch({ type: NOT_FOUND, payload: true });
+               } else {
+                 dispatch({ type: GET_COUNTRY, payload: res.data });
+               }
            } catch (err) {
-               return console.log(err);
+                dispatch({ type: NOT_FOUND, payload: true });
            }
                
        } 

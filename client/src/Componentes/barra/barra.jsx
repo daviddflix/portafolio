@@ -22,7 +22,7 @@ export function Nav(){
 <MainContainer>
   <Wrapper>
 
-     <LinkLogo to='/home'>
+     <LinkLogo to='/'>
      <Logo/>
      </LinkLogo>
 

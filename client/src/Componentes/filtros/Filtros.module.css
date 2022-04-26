@@ -3,8 +3,11 @@
 .main_container{
     display: flex;
     justify-content: space-evenly;
-    margin: 0;
+    align-items: center;
+    margin-top: 1rem;
     padding: 0;
+   
+    
 }
 
 
@@ -16,8 +19,13 @@ label{
     font-weight: 700;
 }
 
-select{
+.selection{
     border-radius: 5px;
+    border: none;
+    padding: .9rem;
+    display: flex;
+    align-items: flex-end;
+    
     
 }
 
@@ -34,6 +42,7 @@ select{
     flex-direction: column;
     padding: 0;
     margin: 0;
+   
 }
 
 @media screen and (max-width: 600px) {
@@ -46,7 +55,7 @@ select{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
+    margin-top: 0;
     padding: 0;
     background-color:dimgray;
     visibility: visible;
@@ -86,6 +95,6 @@ select{
     justify-content: center;
     align-items: center;
     padding: 0;
-    margin: 0;
+    margin-top: 1rem;
 }
 }

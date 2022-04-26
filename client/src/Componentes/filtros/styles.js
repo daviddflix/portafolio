@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 0;
+        margin-top: 1rem;
         padding: 0;
         background-color:dimgray;
         z-index: 2;
