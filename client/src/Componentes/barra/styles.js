@@ -50,12 +50,17 @@ display: flex;
 list-style: none;
 
    @media screen and (max-width: 600px){
-       position: absolute;
+       position: relative;
+       top: 4rem;
+       border: 2px solid black;
+       width: 100%;
+       height: 60px;
+       /* position: absolute;
        top: 73px;
        z-index: 1;
        left: ${({open}) => open? "0" : "-100%"} ;
        transition: 0.5s all ease;
-       width: 100%;
+       width: 100%; */
    }
 `;
 
@@ -64,12 +69,12 @@ export const ContainerRutas = styled.li`
   
  
 
-  @media screen and (max-width:600px){
+  /* @media screen and (max-width:600px){
         background-color: black;
         color: white;
         flex-direction: column;
         transition: 0.5s all ease;
-    }
+    } */
 `;
 
 export const Link = styled(NavLink)`
