@@ -6,17 +6,25 @@ import { Detalle } from './Componentes/detalle/detalle.jsx';
 import { Form } from './Componentes/form/form';
 import Footer from './Componentes/Footer/footer';
 import NoMatch from './Componentes/404/nomatch';
-
+import { useMemo, useState } from 'react';
+import FilterContext from './Componentes/Context/filterContext';
 
 
 
 
 
 function App() {
+
+  const [filter, setFilter] = useState(false);
+  const value = useMemo(
+    () => ({ filter, setFilter }), 
+    [filter]
+  );
+
   return (
     <div className="App">
  
-   
+   <FilterContext.Provider value={value}>
    <Switch>
    <Route exact path='/'>
      <Landing/>
@@ -41,7 +49,7 @@ function App() {
    </Switch>
       <Footer/>
       
-     
+      </FilterContext.Provider>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import { FaFilter } from 'react-icons/fa';
+import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterActivity, filterByContinent, filterByPopulation, getActs } from '../../redux/actions';
-import { FilterIcon } from '../barra/styles';
+import FilterContext from '../Context/filterContext';
 import m from './Filtros.module.css'
 
 
@@ -21,13 +20,9 @@ export function Filtros({handleAz}){
   return exists;
 });
 
-const [filter, setFilter] = useState(true)
 
-const showFilter = () => {
-     setFilter(!filter)
-     
-}
 
+const { filter }= useContext(FilterContext)
 
 
     
@@ -55,10 +50,8 @@ const showFilter = () => {
  
      return( 
        <div>
-           <FilterIcon>
-                <FaFilter onClick={showFilter}/>
-          </FilterIcon>
-            <div className={filter? m.main_container: m.main_container_no}>
+        {/* // m.main_container_no */}
+            <div className={filter?  m.main_container_no: m.main_container}>
            
 
             <div className={m.container}>

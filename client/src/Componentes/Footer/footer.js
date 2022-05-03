@@ -15,7 +15,7 @@ export default function Footer() {
             <a  className={s.anchor} href='https://www.instagram.com/daviddflix/'>   <FaInstagramSquare  className={s.icons} /></a>
           </div>
 
-          <p style={{color: 'darkslategrey'}}>Web page made by David Pajaro</p>
+          <p style={{color: 'darkslategrey'}}>Website made by David Pajaro</p>
 
         </div>
     )

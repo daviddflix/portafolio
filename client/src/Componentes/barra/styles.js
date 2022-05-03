@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { BiWorld} from 'react-icons/bi'
 import { NavLink } from "react-router-dom";
 import { FaList} from 'react-icons/fa'
+import {AiFillCloseCircle} from 'react-icons/ai'
 
 export const  MainContainer = styled.div`
     width: 100%;
@@ -18,7 +19,15 @@ export const Wrapper = styled.div`
   margin: auto;
   justify-content: space-between;
   align-items: center;
- 
+  @media screen and (max-width: 600px) {
+        width: 100%;
+        height: 100%;
+        max-width: 1300px;
+        display: flex;
+        margin: auto;
+        justify-content: space-around;
+        align-items: center;
+    }
 
 `;
 
@@ -27,8 +36,7 @@ export const LinkLogo = styled(NavLink)`
    
     @media screen and (max-width: 600px) {
        display: block;
-       position: relative;
-       left: 1rem;
+       
 }
 `;
 
@@ -44,23 +52,44 @@ export const Logo = styled(BiWorld)`
     
 `;
 
+export const Close = styled(AiFillCloseCircle)`
+      
+  display: none;
+
+  @media screen and (max-width: 600px) {
+       display: block;
+       width: 30px;
+       height: 30px;
+       color: red;
+       position: absolute;
+       top: 10px;
+       right: 10px;
+}
+    
+`;
+
+
 export const Menu = styled.ul`
 
 display: flex;
 list-style: none;
 
    @media screen and (max-width: 600px){
-       position: relative;
-       top: 4rem;
-       border: 2px solid black;
+       position: absolute;
+       top: 44px;
+       /* border: 2px solid black; */
        width: 100%;
-       height: 60px;
-       /* position: absolute;
-       top: 73px;
+       height: 90vh;
        z-index: 1;
        left: ${({open}) => open? "0" : "-100%"} ;
        transition: 0.5s all ease;
-       width: 100%; */
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        flex-direction: column;
+        background-color: #14213d;
+    
    }
 `;
 
@@ -69,12 +98,14 @@ export const ContainerRutas = styled.li`
   
  
 
-  /* @media screen and (max-width:600px){
-        background-color: black;
-        color: white;
-        flex-direction: column;
-        transition: 0.5s all ease;
-    } */
+  @media screen and (max-width:600px){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 50px;
+     
+    }
 `;
 
 export const Link = styled(NavLink)`
@@ -96,9 +127,15 @@ export const Link = styled(NavLink)`
     }
 
     @media screen and (max-width:600px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        flex-direction: column;
+        color: #fff;
+        border-radius: 5px;
         background-color: black;
-        color: white;
-        height: 90vh;
+      
        
     }
 
@@ -110,7 +147,9 @@ export const Buscador = styled.div`
   left: 1rem ;
 
   @media screen and (max-width:600px){
-        width: 60% ;
+    position: relative;
+    left: 0 ;
+
        
     }
 
