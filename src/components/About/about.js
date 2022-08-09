@@ -1,14 +1,14 @@
 import s from './about.module.css'
 import img from '../Assets/profile-pic.png'
 import logo from '../Assets/logo.png'
-import redux from '../Assets/icon redux.png'
+import redux from '../Assets/redux bgc.png'
 import git from '../Assets/git1.png'
 import sequelize from '../Assets/sequelize.svg'
-import node from '../Assets/node.jpg'
+import node from '../Assets/node bgc.png'
 import express from '../Assets/express1.png'
 import html from '../Assets/html.png'
 import css from '../Assets/css1.png'
-import postgres from '../Assets/post.png'
+import postgres from '../Assets/post bgc.png'
 import react from '../Assets/react.png'
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";

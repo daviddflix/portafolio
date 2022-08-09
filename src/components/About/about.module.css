@@ -51,6 +51,7 @@
     justify-content: space-around;
     margin: 2rem 0 0 0;
     width: 80%;
+    flex-wrap: wrap;
 }
 
 .icon{
@@ -71,6 +72,9 @@
         position: relative;
         top: 0;
         left: 2rem;
+       
+        width: 90%;
+       
     }
 
     .title{
@@ -87,4 +91,13 @@
         top: .5rem;
         left: 2rem;
     }
+
+   .containerIcons{
+    width: 100%;
+   }
+
+   .icon{
+    height: 100%;
+    width: 50px;
+   }
 }
