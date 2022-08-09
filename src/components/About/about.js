@@ -1,6 +1,15 @@
 import s from './about.module.css'
 import img from '../Assets/profile-pic.png'
 import logo from '../Assets/logo.png'
+import redux from '../Assets/icon redux.png'
+import git from '../Assets/git1.png'
+import sequelize from '../Assets/sequelize.svg'
+import node from '../Assets/node.jpg'
+import express from '../Assets/express1.png'
+import html from '../Assets/html.png'
+import css from '../Assets/css1.png'
+import postgres from '../Assets/post.png'
+import react from '../Assets/react.png'
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
@@ -32,6 +41,17 @@ export default function About(){
             <h2 className={s.title}>David P. Rodriguez</h2>
             <h3 className={s.p}>I`m a passionate full-stack developer, who enjoys learning new technologies, 
                 creating beautiful projects, and making the user have a good experience.</h3>
+                <div className={s.containerIcons}>
+                    <img className={s.icon} src={react} alt='react'/>
+                    <img className={s.icon} src={redux} alt='redux'/>
+                    <img className={s.icon} src={node} alt='node'/>
+                    <img className={s.icon} src={express} alt='express'/>
+                    <img className={s.icon} src={sequelize} alt='sequelize'/>
+                    <img className={s.icon} src={postgres} alt='postgres'/>
+                    <img className={s.icon} src={html} alt='html'/>
+                    <img className={s.icon} src={css} alt='css'/>
+                    <img className={s.icon} src={git} alt='git'/>
+                </div>
             </div>
         </div>
     )
@@ -52,7 +72,7 @@ const config = {
      events: {
        onClick: {
          enable: true,
-         mode: "push",
+         mode: "repulse",
        },
        onHover: {
          enable: true,
