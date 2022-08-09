@@ -6,7 +6,7 @@ export const GET_DATA = 'GET_DATA'
 
 export function getData (payload){
 
-    if(title){
+  
        return async function (dispatch){
           try {                            
                const res = await axios.get(`https://countriesa-d.herokuapp.com/countries?name=${payload}`); 
@@ -15,7 +15,7 @@ export function getData (payload){
                console.log('error in getData', error)
            }
                
-       } 
+       
     }
     
  }

@@ -1,0 +1,48 @@
+.main{
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+
+.submain{
+    display: grid;
+    place-content: center;
+}
+
+
+
+.home{
+    transition: .3s ease-in-out;
+    padding: 1.5rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: #29d884 solid 1px;
+    animation: animationHome 5s infinite;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@keyframes animationHome {
+    10%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1.12);
+    }
+    50%{
+        transform: scale(1.15);
+    }
+}
+
+
+
+.itemMenu{
+    width: 30px;
+    height: 30px;
+}
+
+.itemProject{
+   color: #10c15b;
+   width: 30px;
+   height: 30px;
+}

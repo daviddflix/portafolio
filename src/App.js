@@ -1,5 +1,6 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import About from './components/About/about';
+import Nav from './components/Nav/nav';
 
 
 function App() {
@@ -7,13 +8,9 @@ function App() {
 
   return (
     <div className="App">
-
-   <Switch>
-       {/* <Route exact path='/'>
-     <Landing/>
-      </Route> */}
-   </Switch>
-     
+       <About/>
+       <Nav/>
+   
     </div>
   );
 }
