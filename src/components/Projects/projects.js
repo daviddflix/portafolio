@@ -26,10 +26,6 @@ export default function Projects(){
                  <img src={altonono} className={s.image} alt='altonono' />
                  <span className={s.imageTitle}>Administration Dashboard</span>
                 </div>
-                <div className={s.subcontainer}>
-                 <img src={panel} className={s.image} alt='hit' />
-                 <span className={s.imageTitle}>Administration Dashboard</span>
-                </div>
             </div>
         </div>
     )
