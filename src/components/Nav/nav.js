@@ -1,18 +1,21 @@
 import {VscProject} from 'react-icons/vsc'
 import {FcAbout} from 'react-icons/fc'
-import {AiOutlineHome} from 'react-icons/ai'
+import {BsCloudDownload} from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
 import {FcHome} from 'react-icons/fc'
 import s from './nav.module.css'
+import cv from '../Assets/DAVID PAJARO R. Agust 3.pdf'
 
 // Import the circular menu
 import {
   CircleMenu,
   CircleMenuItem,
-  TooltipPlacement,
 } from "react-circular-menu";
+import { useHistory } from 'react-router-dom'
 
 const Nav = (props) => {
+
+  const history = useHistory();
   return (
    <div className={s.main}>
        <div className={s.submain}>
@@ -31,17 +34,27 @@ const Nav = (props) => {
       rotationAngleInclusive={false}
     >
       <CircleMenuItem
-        onClick={() => alert("Clicked the item")}
+        onClick={() => history.push('/projects')}
         tooltip="Projects"
         style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}
       >
        <VscProject className={s.itemProject}/>
       </CircleMenuItem>
-      <CircleMenuItem style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}} tooltip="About">
+      <CircleMenuItem 
+       onClick={() => history.push('/')}
+      style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}} tooltip="About">
         <FcAbout className={s.itemMenu}/>
       </CircleMenuItem>
-      <CircleMenuItem   style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}} tooltip="Contact">
+      <CircleMenuItem 
+       onClick={() => history.push('/contact')}
+       style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}} tooltip="Contact">
         <FcContacts className={s.itemMenu} />
+      </CircleMenuItem>
+      <CircleMenuItem 
+       onClick={() => history.push('/contact')}
+       style={{border: 'none',  boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}} tooltip="Resume">
+        <a href={cv} download={cv} className={s.a}><BsCloudDownload className={s.itemDownload} /></a>
+        
       </CircleMenuItem>
     
     </CircleMenu>
