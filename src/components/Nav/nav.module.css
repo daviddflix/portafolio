@@ -1,15 +1,6 @@
 .main{
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
+    border: none
 }
-
-.submain{
-    display: grid;
-    place-content: center;
-}
-
-
 
 .home{
     transition: .3s ease-in-out;

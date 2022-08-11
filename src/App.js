@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-       <Nav/>
+       
        <Switch>
           <Route exact path={'/'}>
             <About/>
@@ -23,7 +23,9 @@ function App() {
             <Projects/>
           </Route>
        </Switch>
-   
+      <div className='navcomponenet'>
+        <Nav/>
+      </div>
     </div>
   );
 }

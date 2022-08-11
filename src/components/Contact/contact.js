@@ -1,11 +1,13 @@
 import { Alert, Button } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useState } from 'react'
 import s from './contact.module.css'
 import { Github } from '../About/about';
 import {MdOutlineMail} from 'react-icons/md'
 import whatsapp from '../Assets/whatsapp.png'
 import github from '../Assets/github.png'
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
 
 export default function Contact(){
 
@@ -18,11 +20,33 @@ export default function Contact(){
 
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    console.log('data', data)
+    const form = useRef();
 
-    const handleSucces = () => {
-        alert('enviado')
-    }
+    const handleSucces = (e) => {
+  
+      emailjs.sendForm('service_4sqpzgh', 'template_botbsug', form.current, '8tKfYuQqI5qwsCuNg')
+        .then((result) => {
+          console.log('result', result)
+           if(result.status === 200){
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Message sent successfully',
+              html:
+                    'I will write you back, <b>thanks</b>',
+              showConfirmButton: false,
+              timer: 1500
+            })
+           }
+        }, (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              footer: '<a href="">Please try again</a>'
+            })
+        });
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -41,12 +65,17 @@ export default function Contact(){
         }
       }, [formErrors, isSubmitting]);
 
+     
+
+      
+    
+
     return(
         <div className={s.main}>
              <Github/>
             <h2 className={s.mainTitle}>Contact</h2>
             <div className={s.submain}>
-                <form className={s.form}>
+                <form ref={form} onSubmit={handleSubmit} className={s.form}>
                     <div className={s.container}>
                         <h3 className={s.title}>Name</h3>
                         <input name='name' value={data.name} onChange={handleChange} placeholder='Name' className={s.input} />
@@ -57,7 +86,7 @@ export default function Contact(){
                         <textarea name='message' value={data.message} onChange={handleChange} placeholder='Message' className={s.message} />
                     {formErrors.message &&  <Alert className={s.error} severity="error">{formErrors.message}</Alert>}
                     </div>
-                    <Button className={s.btn} onClick={handleSubmit} variant='contained' >Send</Button>
+                    <Button className={s.btn} type='submit' variant='contained' >Send</Button>
             </form>
             <div className={s.containerLogos}>
                 <a href={link} className={s.subcontainerLogos}>

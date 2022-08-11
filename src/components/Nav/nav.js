@@ -18,7 +18,7 @@ const Nav = (props) => {
   const history = useHistory();
   return (
    <div className={s.main}>
-       <div className={s.submain}>
+       {/* <div className={s.submain}> */}
        <CircleMenu
       startAngle={-150}
       rotationAngle={180}
@@ -58,7 +58,7 @@ const Nav = (props) => {
       </CircleMenuItem>
     
     </CircleMenu>
-       </div>
+       {/* </div> */}
    </div>
   );
 };

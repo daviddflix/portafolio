@@ -10,22 +10,22 @@ export default function Projects(){
         <div className={s.main}>
             <h3 className={s.mainTitle}>Projects</h3>
             <div className={s.container}>
-                <div className={s.subcontainer}>
+                <a href='https://altonono-panel.vercel.app/' className={s.subcontainer}>
                  <img src={panel} className={s.image} alt='panel' />
                  <span className={s.imageTitle}>Administration Dashboard</span>
-                </div>
-                <div className={s.subcontainer}>
+                </a>
+                <a href='https://deviaje-com.vercel.app/' className={s.subcontainer}>
                  <img src={deviaje} className={s.image} alt='deviaje' />
                  <span className={s.imageTitle}>Administration Dashboard</span>
-                </div>
-                <div className={s.subcontainer}>
+                </a>
+                <a href='https://countyapp.vercel.app/home' className={s.subcontainer}>
                  <img src={country} className={s.image} alt='countries' />
                  <span className={s.imageTitle}>Administration Dashboard</span>
-                </div>
-                <div className={s.subcontainer}>
+                </a>
+                <a href='https://altonono.vercel.app/' className={s.subcontainer}>
                  <img src={altonono} className={s.image} alt='altonono' />
                  <span className={s.imageTitle}>Administration Dashboard</span>
-                </div>
+                </a>
             </div>
         </div>
     )

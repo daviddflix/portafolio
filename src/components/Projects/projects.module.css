@@ -3,6 +3,8 @@
     width: 100%;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    margin: 0 0 3rem 0;
 }
 
 .mainTitle{
@@ -15,16 +17,18 @@
 }
 
 .container{
-    width: 100%;
+    width: 90%;
     height: 85%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
+    left: 4rem;
 }
 
 .subcontainer{
-    width: 21%;
+    width: 25%;
     height: 200px;
     /* border: #f5f6f8 solid 2px; */
     margin: 1.8rem;
@@ -32,7 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    text-decoration: none;
 
 }
 
@@ -47,8 +51,24 @@
     margin: 1rem 0 0 0;
 }
 
+@media screen and (max-width: 900px) {
+    .subcontainer{
+        width: 40%;
+        border: #fff solid 1px;
+    }
+
+    .container{
+        left: 0;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .subcontainer{
-        width: 30%;
+        width: 100%;
+        border: #fff solid 1px;
+    }
+
+    .container{
+        left: 0;
     }
 }
