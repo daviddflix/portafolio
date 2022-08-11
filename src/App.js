@@ -23,9 +23,9 @@ function App() {
             <Projects/>
           </Route>
        </Switch>
-      <div className='navcomponenet'>
         <Nav/>
-      </div>
+      {/* <div className='navcomponenet'> */}
+      {/* </div> */}
     </div>
   );
 }

@@ -10,29 +10,69 @@ export default function Projects(){
         <div className={s.main}>
             <h3 className={s.mainTitle}>Projects</h3>
             <div className={s.container}>
-                <a href='https://altonono-panel.vercel.app/' className={s.subcontainer}>
-                 <img src={panel} className={s.image} alt='panel' />
-                 <span className={s.imageTitle}>Administration Dashboard</span>
-                </a>
-                <a href='https://deviaje-com.vercel.app/' className={s.subcontainer}>
-                 <img src={deviaje} className={s.image} alt='deviaje' />
-                 <span className={s.imageTitle}>Administration Dashboard</span>
-                </a>
-                <a href='https://countyapp.vercel.app/home' className={s.subcontainer}>
-                 <img src={country} className={s.image} alt='countries' />
-                 <span className={s.imageTitle}>Administration Dashboard</span>
-                </a>
-                <a href='https://altonono.vercel.app/' className={s.subcontainer}>
-                 <img src={altonono} className={s.image} alt='altonono' />
-                 <span className={s.imageTitle}>Administration Dashboard</span>
-                </a>
+                {
+                    data && data.map(p => {
+                        return(
+                            <Card
+                            url={p.url}
+                            picture={p.picture}
+                            alt={p.alt}
+                            title={p.title}
+                            description={p.description}
+                            />
+                        )
+                    })
+                }
+                    
             </div>
         </div>
     )
 }
 
-//https://altonono-panel.vercel.app/
-//https://deviaje-com.vercel.app/
-//https://countyapp.vercel.app/home
-//https://altonono.vercel.app/
-//https://hitpastas.com/
+function Card({url, picture, alt, title, description}){
+    return(
+        <a href={url} className={s.subcontainer}>
+        <div  className={s.flipcardinner}>
+             <div className={s.flipcardfront}>
+                 <img src={picture} className={s.image} alt={alt} />
+             </div>
+             <div className={s.flipcardback}>
+             <span className={s.description}>{description}</span>
+             </div>
+        </div>
+        <span className={s.imageTitle}>{title}</span>
+     </a> 
+    )
+}
+
+
+const data = [
+    {
+        title: 'Administration Dashboard',
+        url: 'https://altonono-panel.vercel.app/',
+        picture: panel,
+        alt: 'panel',
+        description: 'Admin dashboard, where P.O can recieve orders, see the status of the store and products.'
+    },
+    {
+        title: 'deviaje.com',
+        url: 'https://deviaje-com.vercel.app/',
+        picture: deviaje,
+        alt: 'deviaje.com',
+        description: 'Web Application, where users can search for cheap flights, see the most atractive destination and buy the ticket.'
+    },
+    {
+        title: 'Country App',
+        url: 'https://countyapp.vercel.app/home',
+        picture: country,
+        alt: 'country',
+        description: 'Website where users can search for a country of the world and see the population, area and capital.'
+    },
+    {
+        title: 'Altonono App',
+        url: 'https://altonono.vercel.app/',
+        picture: altonono,
+        alt: 'Altonono',
+        description: 'Web Application, where users can order'
+    }
+]
