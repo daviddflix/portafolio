@@ -1,0 +1,31 @@
+.main{
+  background-image: url('../Assets/background.png');
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; 
+  background-size: contain;
+}
+
+.title{
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.subTitle{
+  color: #fff;
+  margin: 0.5rem 0 0 ;
+}
+
+.toolsIcons{
+  width: 50px;
+  height: 50px;
+  color: #282828;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}

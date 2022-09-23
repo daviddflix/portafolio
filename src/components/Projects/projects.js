@@ -14,6 +14,7 @@ export default function Projects(){
                     data && data.map(p => {
                         return(
                             <Card
+                            key={p.alt}
                             url={p.url}
                             picture={p.picture}
                             alt={p.alt}

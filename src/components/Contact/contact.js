@@ -71,9 +71,9 @@ export default function Contact(){
     
 
     return(
-        <div className={s.main}>
-             <Github/>
-            <h2 className={s.mainTitle}>Contact</h2>
+        <div id='contact' className={s.main}>
+             {/* <Github/> */}
+            {/* <h2 className={s.mainTitle}>Contact</h2> */}
             <div className={s.submain}>
                 <form ref={form} onSubmit={handleSubmit} className={s.form}>
                     <div className={s.container}>
@@ -88,7 +88,7 @@ export default function Contact(){
                     </div>
                     <Button className={s.btn} type='submit' variant='contained' >Send</Button>
             </form>
-            <div className={s.containerLogos}>
+            {/* <div className={s.containerLogos}>
                 <a href={link} className={s.subcontainerLogos}>
                     <img src={whatsapp} alt='whatsapp' className={s.whatsapp}/>
                 </a>
@@ -100,7 +100,7 @@ export default function Contact(){
                     <MdOutlineMail className={s.email}/>
                     <h3 className={s.titleEmail}>david-972010@hotmail.com</h3>
                 </a>
-            </div>
+            </div> */}
             </div>
           
         </div>

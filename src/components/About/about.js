@@ -30,46 +30,17 @@ export default function About(){
 
     return(
         <div className={s.main}>
-            <Particles
-             id="tsparticles"
-             init={particlesInit}
-             loaded={particlesLoaded}
-             options={config}
-            />
-            <Github/>
-            <img className={s.picture} src={img} alt='Profile'/>
-            <div className={s.submain}>
-            <h2 className={s.title}>David P. Rodriguez</h2>
             <h3 className={s.p}>I`m a passionate full-stack developer, who enjoys learning new technologies, 
                 creating beautiful projects, and making the user have a good experience.</h3>
+            <div className={s.submain}>
                 <div className={s.containerIcons}>
-                    <Tooltip title="React">
-                    <img className={s.icon} src={react} alt='react'/>
-                    </Tooltip>
-                    <Tooltip title="Redux">
-                    <img className={s.icon} src={redux} alt='redux'/>
-                    </Tooltip>
-                    <Tooltip title="Node Js">
-                    <img className={s.icon} src={node} alt='node'/>
-                    </Tooltip>
-                    <Tooltip title="Express Js">
-                    <img className={s.icon} src={express} alt='express'/>
-                    </Tooltip>
-                    <Tooltip title="Sequelize">
-                    <img className={s.icon} src={sequelize} alt='sequelize'/>
-                    </Tooltip>
-                    <Tooltip title="PostgreSQL">
-                    <img className={s.icon} src={postgres} alt='postgres'/>
-                    </Tooltip>
-                    <Tooltip title="HTML">
-                    <img className={s.icon} src={html} alt='html'/>
-                    </Tooltip>
-                    <Tooltip title="CSS">
-                    <img className={s.icon} src={css} alt='css'/>
-                    </Tooltip>
-                    <Tooltip title="GIT">
-                    <img className={s.icon} src={git} alt='git'/>
-                    </Tooltip>
+                   <h4 className={s.title}>Basic</h4>
+                </div>
+                <div className={s.containerIcons}>
+                <h4 className={s.title}>Intermidiate</h4>
+                </div>
+                <div className={s.containerIcons}>
+                <h4 className={s.title}>Advanced</h4>
                 </div>
             </div>
         </div>
