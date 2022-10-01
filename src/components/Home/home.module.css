@@ -1,7 +1,6 @@
 .main{
     width: 100%;
     display: flex;
-    border-bottom: #00adb5 solid 2px;
     padding: 0 0 2rem 0;
 }
 
@@ -42,6 +41,10 @@
     margin: 0 0 0 4rem;
 }
 
+
+
+
+
 .subtitle{
     color: #fff;
     font-size: 60px;
@@ -66,6 +69,30 @@
 .lastname{
     color: #00adb5;
     font-size: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .title{
+        font-size: 100px;
+    }
+
+    .subtitle{
+        font-size: 40px;
+    }
+
+    .name{
+        font-size: 30px;
+    }
+
+    .lastname{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .title{
+        font-size: 70px;
+    }
 }
 
 .role{

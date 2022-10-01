@@ -2,7 +2,7 @@ import { Alert, Button } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import { useState } from 'react'
 import s from './contact.module.css'
-import { Github } from '../About/about';
+import { Github, Mark } from '../About/about';
 import {MdOutlineMail} from 'react-icons/md'
 import whatsapp from '../Assets/whatsapp.png'
 import github from '../Assets/github.png'
@@ -73,7 +73,7 @@ export default function Contact(){
     return(
         <div id='contact' className={s.main}>
              {/* <Github/> */}
-            {/* <h2 className={s.mainTitle}>Contact</h2> */}
+           <Mark section={'Contact Me'}/>
             <div className={s.submain}>
                 <form ref={form} onSubmit={handleSubmit} className={s.form}>
                     <div className={s.container}>

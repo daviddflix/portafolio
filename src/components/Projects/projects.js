@@ -3,12 +3,13 @@ import deviaje from '../Assets/projects/deviaje.png'
 import country from '../Assets/projects/country.png'
 import altonono from '../Assets/projects/altonono.png'
 import s from './projects.module.css'
+import { Mark } from '../About/about';
 
 export default function Projects(){
 
     return(
-        <div className={s.main}>
-            <h3 className={s.mainTitle}>Projects</h3>
+        <div id='portfolio' className={s.main}>
+           <Mark section={'Portfolio'}/>
             <div className={s.container}>
                 {
                     data && data.map(p => {
