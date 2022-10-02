@@ -78,24 +78,24 @@ export default function About(){
   )
 }
 
-const advanced = [{skill: 'CSS & HTML5', porcentaje: 80}, 
-{skill: 'Git', porcentaje: 60},
-{skill: 'React', porcentaje: 80},
-{skill: 'Node', porcentaje: 70},
-{skill: 'PostgreSQL', porcentaje: 80},
-{skill: 'Express', porcentaje: 80}]
-const intermidiate = [{skill: 'React Native', porcentaje: 30}, {skill: 'Git', porcentaje: 60}, {skill: 'Github', porcentaje: 50}  ]
-const basic = [{skill: "GraphQL", porcentaje: 20}, {skill: 'Electron', porcentaje: 25} ]
+const advanced = [{skill: 'CSS & HTML5', porcentaje: '45%'}, 
+{skill: 'React', porcentaje: '70%'},
+{skill: 'Node', porcentaje: '65%'},
+{skill: 'PostgreSQL', porcentaje: '60%'},
+{skill: 'Express', porcentaje: '70%'}]
+const intermidiate = [{skill: 'React Native', porcentaje: '30%'}, {skill: 'Git', porcentaje: '40%'}, {skill: 'Github', porcentaje: '40%'}  ]
+const basic = [{skill: "GraphQL", porcentaje: '20%'}, {skill: 'Electron', porcentaje: '25%'} ]
 
 
 function Skills({porcentaje, tech}){
   return(
     <div className={s.mainSkills}>
        <h3 className={s.subMainSkills}>{tech}</h3>
-       <div>
-       <span className={s.barraSkill}></span>
-       <span className={s.porcentaje}>{porcentaje}</span>
-       </div>
+       <div className={s.progress}>
+          <div className={s.progressBar} style={{width: porcentaje}}>
+              <span className={s.progressBarText}></span>
+          </div>
+      </div>
     </div>
   )
 }

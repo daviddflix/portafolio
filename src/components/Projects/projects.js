@@ -1,4 +1,4 @@
-import panel from '../Assets/projects/panel.png';
+import panel from '../Assets/alto.png';
 import deviaje from '../Assets/projects/deviaje.png'
 import country from '../Assets/projects/country.png'
 import altonono from '../Assets/projects/altonono.png'
@@ -14,7 +14,7 @@ export default function Projects(){
                 {
                     data && data.map(p => {
                         return(
-                            <Card
+                            <Card 
                             key={p.alt}
                             url={p.url}
                             picture={p.picture}

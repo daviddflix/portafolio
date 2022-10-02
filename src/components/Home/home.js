@@ -19,9 +19,9 @@ export default  function Home(){
             <div className={s.containerFollow}>
                 <h3 className={s.follow}>Follow Me</h3>
                 <span className={s.line}></span>
-                <div className={s.instaBox}>
+                <a href='https://www.instagram.com/daviddflix/' className={s.instaBox}>
                 <BsInstagram className={s.instagram}/>
-                </div>
+                </a>
             </div>
         </div>
     )

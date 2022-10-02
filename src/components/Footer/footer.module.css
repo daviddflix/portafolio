@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+.main{
+    height: 150px;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    color: #007bb6;
+    margin: 1rem 1rem 1rem  0 ;
+}
+
+.submain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerFirm{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.name{
+    height: 100%;
+    margin: .4rem 0 0 .5rem;
+    color: #00adb5 ;
+    font-family: 'Sacramento', cursive;
+}
+
+.done{
+    font-family: 'Roboto', sans-serif;
+}
