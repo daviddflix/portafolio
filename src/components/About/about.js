@@ -42,7 +42,7 @@ export default function About(){
                    {
                     basic.map(p => {
                       return(
-                        <Skills tech={p.skill} porcentaje={p.porcentaje}/>
+                        <Skills key={p.skill} tech={p.skill} porcentaje={p.porcentaje}/>
                       )
                     })
                    }
@@ -52,7 +52,7 @@ export default function About(){
                   {
                     intermidiate.map(p => {
                       return(
-                        <Skills tech={p.skill} porcentaje={p.porcentaje}/>
+                        <Skills key={p.skill} tech={p.skill} porcentaje={p.porcentaje}/>
                       )
                     })
                    }
@@ -62,7 +62,7 @@ export default function About(){
                 {
                     advanced.map(p => {
                       return(
-                        <Skills tech={p.skill} porcentaje={p.porcentaje}/>
+                        <Skills key={p.skill} tech={p.skill} porcentaje={p.porcentaje}/>
                       )
                     })
                    }

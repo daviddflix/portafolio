@@ -24,6 +24,7 @@
     "sass": "^1.54.3",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.26",
+    "three": "^0.145.0",
     "tsparticles": "^2.1.4",
     "web-vitals": "^0.2.4"
   },
