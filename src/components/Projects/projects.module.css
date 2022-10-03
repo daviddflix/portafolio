@@ -54,7 +54,7 @@
 @media screen and (max-width: 900px) {
     .subcontainer{
         width: 40%;
-        border: #fff solid 1px;
+       
     }
 
     .container{
@@ -65,7 +65,7 @@
 @media screen and (max-width: 700px) {
     .subcontainer{
         width: 100%;
-        border: #fff solid 1px;
+    
     }
 
     .container{

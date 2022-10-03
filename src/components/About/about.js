@@ -30,16 +30,16 @@ export default function About(){
 
     return(
         <div className={s.main}>
-            <Particles
+            {/* <Particles
              id="tsparticles"
              init={particlesInit}
              loaded={particlesLoaded}
              options={config}
-            />
-            <Github/>
+            /> */}
+            {/* <Github/> */}
             <img className={s.picture} src={img} alt='Profile'/>
-            <div className={s.submain}>
-            <h2 className={s.title}>David P. Rodriguez</h2>
+                <div className={s.submain}>
+                    <h2 className={s.title}>David P. Rodriguez</h2>
             <h3 className={s.p}>I`m a passionate full-stack developer, who enjoys learning new technologies, 
                 creating beautiful projects, and making the user have a good experience.</h3>
                 <div className={s.containerIcons}>

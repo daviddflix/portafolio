@@ -11,21 +11,10 @@ function App() {
 
   return (
     <div className="App">
-       
-       <Switch>
-          <Route exact path={'/'}>
-            <About/>
-          </Route>
-          <Route exact path={'/contact'}>
-            <Contact/>
-          </Route>
-          <Route exact path={'/projects'}>
-            <Projects/>
-          </Route>
-       </Switch>
-      <div className='navcomponenet'>
         <Nav/>
-      </div>
+        <About/>
+        <Projects/>
+        <Contact/>
     </div>
   );
 }

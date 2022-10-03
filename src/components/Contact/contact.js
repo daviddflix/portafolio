@@ -72,8 +72,6 @@ export default function Contact(){
 
     return(
         <div className={s.main}>
-             <Github/>
-            <h2 className={s.mainTitle}>Contact</h2>
             <div className={s.submain}>
                 <form ref={form} onSubmit={handleSubmit} className={s.form}>
                     <div className={s.container}>
