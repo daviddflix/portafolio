@@ -1,5 +1,5 @@
 {
-  "name": "redux-cra-template",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": "false",
   "dependencies": {
@@ -7,14 +7,15 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.6.3",
+    "@react-three/drei": "^9.32.7",
+    "@react-three/fiber": "^8.8.8",
     "axios": "^0.26.0",
     "emailjs": "^4.0.0",
     "emailjs-com": "^3.2.0",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-circular-menu": "^2.3.5",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
-    "react-normalize": "^0.4.4",
     "react-radial-menu": "^1.0.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
@@ -25,6 +26,7 @@
     "sass": "^1.54.3",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.26",
+    "three": "^0.145.0",
     "tsparticles": "^2.1.4",
     "web-vitals": "^0.2.4"
   },

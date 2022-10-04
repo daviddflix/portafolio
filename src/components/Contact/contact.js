@@ -2,16 +2,14 @@ import { Alert, Button } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import { useState } from 'react'
 import s from './contact.module.css'
-import { Github } from '../About/about';
+import { Github, Mark } from '../About/about';
 import {MdOutlineMail} from 'react-icons/md'
-import whatsapp from '../Assets/whatsapp.png'
-import github from '../Assets/github.png'
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
 
 export default function Contact(){
 
-    const link =`https://wa.me/5491137858227?text=Hi%20`
+   
 
     const [data, setData] = useState({
         name: '',
@@ -38,6 +36,10 @@ export default function Contact(){
               timer: 1500
             })
            }
+           setData({
+            name: '',
+            message: ''
+        })
         }, (error) => {
             Swal.fire({
               icon: 'error',
@@ -46,6 +48,10 @@ export default function Contact(){
               footer: '<a href="">Please try again</a>'
             })
         });
+        setData({
+          name: '',
+          message: ''
+      })
     };
 
     const handleChange = (e) => {
@@ -71,7 +77,8 @@ export default function Contact(){
     
 
     return(
-        <div className={s.main}>
+        <div id='contact' className={s.main}>
+           <Mark section={'Contact Me'}/>
             <div className={s.submain}>
                 <form ref={form} onSubmit={handleSubmit} className={s.form}>
                     <div className={s.container}>
@@ -86,19 +93,6 @@ export default function Contact(){
                     </div>
                     <Button className={s.btn} type='submit' variant='contained' >Send</Button>
             </form>
-            <div className={s.containerLogos}>
-                <a href={link} className={s.subcontainerLogos}>
-                    <img src={whatsapp} alt='whatsapp' className={s.whatsapp}/>
-                </a>
-                <a href='https://github.com/daviddflix' className={s.subcontainerLogos}>
-                    <img src={github} alt='Github' className={s.github}/>
-                    
-                </a>
-                <a href='mailto:david-972010@hotmail.com?body=Hola' className={s.subcontainerLogos}>
-                    <MdOutlineMail className={s.email}/>
-                    <h3 className={s.titleEmail}>david-972010@hotmail.com</h3>
-                </a>
-            </div>
             </div>
           
         </div>
@@ -122,5 +116,3 @@ const validate = (values) => {
     } 
     return errors;
   };
-
-
