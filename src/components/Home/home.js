@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import * as THREE from "three";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import Model from './model';
+import earth from '../Assets/earth.jpg'
 
 export default  function Home(){
 
@@ -30,7 +30,7 @@ export default  function Home(){
                 <span className={s.role}>Full Stack Developer</span>
             </div>
           <div className={s.containerModel}>
-          {/* <BoxModel/> */}
+          <Model2/>
           </div>
             <div className={s.containerFollow}>
                 <h3 className={s.follow}>Follow Me</h3>
@@ -43,25 +43,95 @@ export default  function Home(){
     )
 }
 
-
-export function BoxModel() {
-   return (
-      <Canvas
-         camera={{ position: [2, 0, 12.25], fov: 15 }}
-         style={{
-            backgroundColor: '#111a21',
-            width: '100vw',
-            height: '100vh',
-         }}
-      >
-         <ambientLight intensity={1.25} />
-         <ambientLight intensity={0.1} />
-         <directionalLight intensity={0.4} />
-         <Suspense fallback={null}>
-         <Model position={[0.025, -0.9, 0]} /> 
-         </Suspense>
-         <OrbitControls />
-      </Canvas>
-   );
+class Model extends Component {
+  componentDidMount() {
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    // document.body.appendChild( renderer.domElement );
+    // use ref as a mount point of the Three.js scene instead of the document.body
+    this.mount.appendChild( renderer.domElement );
+    const geometry = new THREE.SphereGeometry( 15, 32, 16 );
+    const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+    const sphere = new THREE.Mesh( geometry, material );
+    scene.add( sphere );
+    camera.position.z = 5;
+    var animate = function () {
+      requestAnimationFrame( animate );
+      // sphere.rotation.x += 0.01;
+      // sphere.rotation.y += 0.01;
+      renderer.render( scene, camera );
+    };
+    animate();
+  }
+  render() {
+    return (
+      <div ref={ref => (this.mount = ref)} />
+    )
+  }
 }
 
+let scene, camera, renderer, cube;
+
+class Model2 extends Component {
+  constructor(props) {
+    super(props);
+    this.animate = this.animate.bind(this);
+  }
+
+  init() {
+    //creating scene
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x282828);
+
+    //add camera
+    camera = new THREE.PerspectiveCamera(
+      75,
+     100/100
+    );
+
+    //renderer
+    renderer = new THREE.WebGLRenderer();
+    window.innerWidth > 1000 ?
+    renderer.setSize( 300, 300):
+    renderer.setSize( 100, 100)
+
+    //document.body.appendChild(renderer.domElement);
+    const moonTexture = new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/The_earth_at_night.jpg/2560px-The_earth_at_night.jpg');
+    //add geometry
+    const geometry = new THREE.SphereGeometry(3, 32, 32);
+    var material = new THREE.MeshBasicMaterial({
+      map: moonTexture,
+      normalMap: moonTexture,
+    });
+    cube = new THREE.Mesh(geometry, material);
+
+    scene.add(cube);
+
+
+
+    camera.position.z = 5;
+    
+
+    return renderer.domElement;
+  }
+
+  //animation
+  animate() {
+    requestAnimationFrame(this.animate);
+
+    cube.rotation.y += 0.005;
+
+    renderer.render(scene, camera);
+  }
+
+  componentDidMount() {
+    document.getElementById("Render").appendChild(this.init());
+    this.animate();
+  }
+
+  render() {
+    return <div id="Render"></div>;
+  }
+}
