@@ -17,14 +17,14 @@ function App() {
 
   return (
     <div className="App">
-        <BsArrowUp onClick={top} className='arrow'/>
+        {/* <BsArrowUp onClick={top} className='arrow'/>
         <Nav/>
         <Home/>
         <About/>
         <Projects/>
         <Contact/>
-        <Footer/>
-        {/* <NoMatch/> */}
+        <Footer/> */}
+        <NoMatch/>
     </div>
   );
 }

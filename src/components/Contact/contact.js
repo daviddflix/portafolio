@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react'
 import s from './contact.module.css'
 import { Github, Mark } from '../About/about';
-import {MdOutlineMail} from 'react-icons/md'
+import {AiOutlineSend} from 'react-icons/ai'
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
 
@@ -91,7 +91,7 @@ export default function Contact(){
                         <textarea name='message' value={data.message} onChange={handleChange} placeholder='Message' className={s.message} />
                     {formErrors.message &&  <Alert className={s.error} severity="error">{formErrors.message}</Alert>}
                     </div>
-                    <Button className={s.btn} type='submit' variant='contained' >Send</Button>
+                    <Button className={s.btn} type='submit' variant='contained' >Send Message<AiOutlineSend className={s.sendIcon}/></Button>
             </form>
             </div>
           

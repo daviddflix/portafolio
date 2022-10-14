@@ -1,7 +1,7 @@
 import panel from '../Assets/alto.png';
 import deviaje from '../Assets/projects/deviaje.png'
 import country from '../Assets/projects/country.png'
-import altonono from '../Assets/projects/altonono.png'
+import altonono from '../Assets/qrmenu.png'
 import s from './projects.module.css'
 import { Mark } from '../About/about';
 
@@ -27,6 +27,7 @@ export default function Projects(){
                 }
                     
             </div>
+       
         </div>
     )
 }
@@ -71,7 +72,7 @@ const data = [
         description: 'Website where users can search for a country of the world and see the population, area and capital.'
     },
     {
-        title: 'Altonono App',
+        title: 'QR Menu',
         url: 'https://altonono.vercel.app/',
         picture: altonono,
         alt: 'Altonono',

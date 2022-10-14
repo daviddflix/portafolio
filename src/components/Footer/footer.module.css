@@ -2,6 +2,7 @@
 
 .main{
     height: 150px;
+    width: 100%;
 }
 
 .icon{
@@ -9,6 +10,7 @@
     height: 50px;
     color: #007bb6;
     margin: 1rem 1rem 1rem  0 ;
+    
 }
 
 .submain{
@@ -30,8 +32,15 @@
     margin: .4rem 0 0 .5rem;
     color: #00adb5 ;
     font-family: 'Sacramento', cursive;
+    z-index: 10;
 }
 
 .done{
     font-family: 'Roboto', sans-serif;
+    z-index: 10;
+}
+
+.svg{
+    position: absolute;
+    bottom: 0;
 }
