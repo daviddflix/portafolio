@@ -104,7 +104,8 @@ right: 30%;
     }
 
     .containerModel{
-        right: 10%
+        right: 10%;
+        bottom: 5%;
     }
 
     .subtitle{

@@ -20,15 +20,10 @@ export default  function Home(){
 //   }, [])
 const FadeUp = batch(Fade(), Move());
     return(
-       <ScrollContainer >
-          <ScrollPage>
+
           <div className={s.main}>
             <div className={s.subMain}>
-               <Animator animation={FadeUp}>
                  <h3 className={s.title}>HELLO</h3>
-                </Animator>
-               
-            
                 <h3 className={s.subtitle}>I'm</h3>
                   <div className={s.containerName}>
                     <h3 className={s.name}>David P.</h3>
@@ -47,8 +42,6 @@ const FadeUp = batch(Fade(), Move());
                 </a>
             </div>
         </div>
-        </ScrollPage>
-        </ScrollContainer>  
     )
 }
 
