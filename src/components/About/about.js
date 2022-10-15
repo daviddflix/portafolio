@@ -3,6 +3,8 @@ import img from '../Assets/profile-pic.png'
 import logo from '../Assets/logo.png'
 import { loadFull } from "tsparticles";
 import Tooltip from '@mui/material/Tooltip';
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
+
 
 export default function About(){
 
@@ -19,6 +21,7 @@ export default function About(){
       };
 
     return(
+     
         <div id='about' className={s.main}>
           <Mark section={'About Me'}/>
             <div className={s.containerPic}>
@@ -59,6 +62,7 @@ export default function About(){
                 </div>
             </div>
         </div>
+      
     )
 }
 

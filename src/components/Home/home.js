@@ -7,6 +7,7 @@ import * as THREE from "three";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import earth from '../Assets/earth.jpg'
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
 export default  function Home(){
 
@@ -17,11 +18,17 @@ export default  function Home(){
 //     .then(data => data.json())
 //     .then(data => setModel(data))
 //   }, [])
-
+const FadeUp = batch(Fade(), Move());
     return(
-        <div className={s.main}>
+       <ScrollContainer >
+          <ScrollPage>
+          <div className={s.main}>
             <div className={s.subMain}>
-                <h3 className={s.title}>HELLO</h3>
+               <Animator animation={FadeUp}>
+                 <h3 className={s.title}>HELLO</h3>
+                </Animator>
+               
+            
                 <h3 className={s.subtitle}>I'm</h3>
                   <div className={s.containerName}>
                     <h3 className={s.name}>David P.</h3>
@@ -40,6 +47,8 @@ export default  function Home(){
                 </a>
             </div>
         </div>
+        </ScrollPage>
+        </ScrollContainer>  
     )
 }
 
